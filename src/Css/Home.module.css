@@ -25,6 +25,11 @@
   animation: blink-caret 0.65s step-end infinite;
   display: var(--homeHeadingAfterDisplay);
 }
+.home h3:after{
+  content: '_';
+  animation: blink-caret 0.65s step-end infinite;
+  display: var(--homeHeadingH3AfterDisplay);
+}
 .home p{
     text-align: center;
     padding-right: 5px;
@@ -335,22 +340,46 @@
       min-height: 25px !important;
       font-size: 1rem;
     }
-    .home .headingWrapper,
-    .home .headingWrapper_h3{
+    .home .headingWrapper{
       padding-bottom: 0;
       max-width: 285px !important;
     }
     .home .headingWrapper_h3{
       padding-bottom: 1.25rem;
+      max-width: 185px;
+      width: 100%;
     }
-    .home .par1Wrapper,
-    .home .par2Wrapper,
-    .home .par3Wrapper,
-    .home .par4Wrapper,
-    .home .par5Wrapper,
+    .home .par1Wrapper{
+      max-width: 285px !important;
+    }
+    .home .par2Wrapper{
+      max-width: 295px !important;
+    }
+    .home .par3Wrapper{
+      max-width: 280px !important;
+    }
+    .home .par4Wrapper{
+      max-width: 250px !important;
+    }
+    .home .par5Wrapper{
+      max-width: 245px !important;
+    }
     .home .par6Wrapper{
-      max-width: unset !important;
-      width: unset !important;
-      position: relative;
+      max-width: 230px !important;
+    }
+    .home .btnWrapper > button{
+      max-width: 150px;
+    }
+    .home .btnWrapper > button > a{
+      padding: 12px 0;
+    }
+    .home > .par4Wrapper > p::after{
+      display: var(--homePar4AfterDisplay);
+    }
+    .home > .par5Wrapper > p::after{
+      display: var(--homePar5AfterDisplay);
+    }
+    .home > .par6Wrapper > p::after{
+      display: var(--homePar6AfterDisplay);
     }
   }

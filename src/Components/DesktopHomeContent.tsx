@@ -1,5 +1,6 @@
 import {useRef, useEffect} from 'react'
-import { typewriterDesktop, getAge } from '../Helpers/Helpers'
+import { getAge } from '../Helpers/Helpers'
+import { typewriterDesktop } from '../Helpers/DesktopTypewriter'
 
 import styles from '../Css/Home.module.css'
 
