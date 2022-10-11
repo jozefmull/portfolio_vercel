@@ -351,5 +351,6 @@
     .home .par6Wrapper{
       max-width: unset !important;
       width: unset !important;
+      position: relative;
     }
   }
