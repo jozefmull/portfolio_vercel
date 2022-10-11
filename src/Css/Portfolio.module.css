@@ -1,0 +1,36 @@
+.portfolio{
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: hidden;
+    padding-top: 125px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.portfolio .screenReaders{
+    display: none;
+}
+
+.portfolio h2{
+    padding-right: 5px;
+    font-size: 2rem;
+  user-select: none;
+
+}
+.portfolio h2::after{
+  content: '_';
+  animation: blink-caret 0.65s step-end infinite;
+}
+@keyframes blink-caret {
+    from,
+    to {
+      color: transparent;
+    }
+    50% {
+      color: #cacaca;
+    }
+}

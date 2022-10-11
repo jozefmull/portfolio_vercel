@@ -1,0 +1,224 @@
+.contact{
+  height:100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.contact .screenReaders{
+  display: none;
+}
+.contact .contact_heading{
+    min-height: 36.8px;
+    font-size: 2rem;
+  user-select: none;
+}
+.contact .contact_heading::after{
+  content: '_';
+  animation: blink-caret 0.65s step-end infinite;
+  display: var(--contactHeadingAfterDisplay);
+}
+.contact .text{
+    font-size: 1rem;
+    text-align: left;
+    color: #cacaca;
+    line-height: 1.4;
+    min-height: 25.19px;
+    padding-right: 5px;
+  user-select: none;
+}
+.contact .text::after{
+  padding-left: 3px;
+  content: '_';
+  position: relative;
+  top: -1px;
+  animation: blink-caret 0.65s step-end infinite;
+  font-weight: 900;
+}
+@keyframes blink-caret {
+    from,
+    to {
+      color: transparent;
+    }
+    50% {
+      color: #cacaca;
+    }
+}
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 50px;
+  max-width: 100%;
+}
+
+.contactForm > .inputWrap {
+  width: 100%;
+  position: relative !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactForm > .inputWrap > input[type='text'],
+.contactForm > .inputWrap > input[type='email'] {
+  max-width: 100%;
+  height: 50px;
+  margin-bottom: 0;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 0.5px solid #696969;
+  color: #fff;
+  font-weight: 400;
+  padding-left: 15px;
+  margin-top: 20px;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-30px);
+  opacity: 0;
+}
+
+.contactForm > .inputWrap > textarea {
+  max-width: 100%;
+  min-height: 100px;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 0.5px solid #696969;
+  color: #fff;
+  font-weight: 400;
+  padding-left: 15px;
+  margin-bottom: 0;
+  margin-top: 20px;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-30px);
+  opacity: 0;
+
+}
+
+.contactForm > .inputWrap > input[type='text']:focus,
+.contactForm > .inputWrap > input[type='email']:focus,
+.contactForm > .inputWrap > textarea:focus {
+  border-bottom: 1px solid transparent;
+}
+
+.contactForm > .inputWrap > .line:after {
+  width: calc(100% - 15px);
+  display: block;
+  content: '';
+  border-bottom: solid 1px var(--main-color);
+  transform: scaleX(0);
+  transition: transform 500ms ease-in-out;
+}
+
+.contactForm > .inputWrap > input[type='text']:focus + .line:after,
+.contactForm > .inputWrap > input[type='email']:focus + .line:after,
+.contactForm > .inputWrap > textarea:focus + .line:after {
+  transform: scaleX(1);
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  /* border-bottom: 1px solid var(--main-color); */
+  -webkit-text-fill-color: var(--main-color);
+  box-shadow: 0 0 0px 1000px #343434 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #343434 inset;
+  transition: background-color 0.5s ease-in-out 0s;
+  font-weight: 300;
+}
+
+.contactForm > .inputWrap > .contactformerrormsg,
+.contactForm > .inputWrap > .check {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 50;
+  color: var(--main-color);
+  transform: translateX(100%);
+  animation: slide-error 250ms forwards;
+  animation-timing-function: ease-in-out;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.contactForm > button {
+  max-width: 200px;
+  margin: 40px 0px 0px 1px;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-family: Montserrat;
+  padding: 15px;
+  cursor: pointer;
+  transform: scale(0.5);
+  opacity: 0;
+  outline: 1px solid #cacaca;
+}
+.contactForm > button::after{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 95%;
+  width: 100%;
+  background: #202020;
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0.05, 0.65, 0.18, 1);
+  transform-origin: 100% 50%;
+  z-index: -1;
+}
+.contactForm > button:before {
+  display: block;
+  content: '';
+  border-bottom: solid 3px #ff9307;
+  transform: scaleX(0);
+  transition: transform 300ms ease-in-out;
+  transform-origin: left;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.contactForm > button:enabled:hover:after,
+.contactForm > button:enabled:hover:before,
+.contactForm > button:enabled:focus:before,
+.contactForm > button:enabled:focus:after {
+  transform: scaleX(1);
+}
+.contactForm > button:disabled{
+  background-color: #cacaca;
+  cursor: no-drop;
+}
+@keyframes slide-error {
+  0% {
+    transform: translateX(100%);
+  }
+
+  50% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .contactForm > button {
+    max-width:calc(100% - 2px);
+  }
+}
