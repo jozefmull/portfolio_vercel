@@ -1,23 +1,21 @@
-import {useState, useEffect} from 'react'
 import { getAge } from '../Helpers/Helpers'
 
 import SocialLinks from '../Components/SocialLinks'
 import HomeButtons from '../Components/HomeButtons'
 import DesktopHomeContent from '../Components/DesktopHomeContent'
-import MobileHomeContent from '../Components/MobileHomeContent'
 
 import styles from '../Css/Home.module.css'
 
 const Home = () => {
-  const [screenWidth, setscreenWidth] = useState(window.innerWidth)
+  // const [screenWidth, setscreenWidth] = useState(window.innerWidth)
 
-  useEffect(() => {
-    // https://stackoverflow.com/questions/70031088/why-does-useeffect-run-once-the-window-innerwidth-changes-even-though-the-second
-    let cb = () => setscreenWidth(window.innerWidth)
-    window.addEventListener("resize", cb)
+  // useEffect(() => {
+  //   // https://stackoverflow.com/questions/70031088/why-does-useeffect-run-once-the-window-innerwidth-changes-even-though-the-second
+  //   let cb = () => setscreenWidth(window.innerWidth)
+  //   window.addEventListener("resize", cb)
 
-    return () => window.removeEventListener("resize", cb)
-  }, [])
+  //   return () => window.removeEventListener("resize", cb)
+  // }, [])
 
   return (
     <>
@@ -31,7 +29,8 @@ const Home = () => {
         You can contact me via email at: dodkymull@gmail.com</p>
       </div>
       {/* HOMEPAGE content based on width of screen */}
-      {screenWidth > 480 ? <DesktopHomeContent/> : <MobileHomeContent/>}
+      <DesktopHomeContent/>
+      {/* {screenWidth > 480 ? <DesktopHomeContent/> : <MobileHomeContent/>} */}
       <HomeButtons />
     </div>
     </>

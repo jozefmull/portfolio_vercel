@@ -91,6 +91,7 @@
   padding-bottom: 1px;
   padding: 0px;
   text-decoration: none;
+  font-weight: 500;
 }
 .home p > a::after {
   position: absolute;
@@ -130,7 +131,6 @@
   background-color: transparent;
   cursor: pointer;
   color: #fff;
-  font-weight: 600;
   position: relative;
   display: inline-block;
   transform: translateY(150%) scale(0.75);
@@ -144,6 +144,7 @@
   width: 100%;
   padding: 15px 0px;
   user-select: none;
+  font-weight: 600;
 }
 .home .btnWrapper > button > a:hover:after{
   transform: scale(0);
@@ -324,62 +325,33 @@
       user-select: none;
       white-space: nowrap;
     }
-    .home h2,
-    .home h3{
-      max-height: unset !important;
-      height: unset !important;
-      text-align: center;
-      font-size: 1.75rem;
-      margin: 0;
-      display: inline-block;
-    }
-    .home h3{
-      margin: 0;
-    }
     .home p{
-      min-height: 25px !important;
+      min-height: 50px !important;
+      height: 100%;
       font-size: 1rem;
     }
-    .home .headingWrapper{
-      padding-bottom: 0;
-      max-width: 285px !important;
-    }
-    .home .headingWrapper_h3{
-      padding-bottom: 1.25rem;
-      max-width: 185px;
-      width: 100%;
-    }
-    .home .par1Wrapper{
-      max-width: 285px !important;
+    .home .par1Wrapper,
+    .home .par3Wrapper{
+      max-width: 300px !important;
+      width: unset !important;
     }
     .home .par2Wrapper{
-      max-width: 295px !important;
+      max-width: 300px !important;
+      width: unset !important;
     }
-    .home .par3Wrapper{
-      max-width: 280px !important;
+    .home h2{
+      text-align: center;
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+      height: unset !important;
     }
-    .home .par4Wrapper{
-      max-width: 250px !important;
-    }
-    .home .par5Wrapper{
-      max-width: 245px !important;
-    }
-    .home .par6Wrapper{
-      max-width: 230px !important;
-    }
-    .home .btnWrapper > button{
-      max-width: 150px;
+    .home .headingWrapper{
+      max-width: 300px !important;
     }
     .home .btnWrapper > button > a{
-      padding: 12px 0;
+      font-size: 0.9rem;
     }
-    .home > .par4Wrapper > p::after{
-      display: var(--homePar4AfterDisplay);
-    }
-    .home > .par5Wrapper > p::after{
-      display: var(--homePar5AfterDisplay);
-    }
-    .home > .par6Wrapper > p::after{
-      display: var(--homePar6AfterDisplay);
+    .home p a{
+      font-weight: 600;
     }
   }
