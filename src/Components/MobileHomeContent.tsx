@@ -2,9 +2,7 @@ import {useState, useEffect} from 'react'
 import styles from '../Css/Home.module.css'
 import { getAge } from '../Helpers/Helpers'
 
-type Props = {}
-
-const MobileHomeContent = (props: Props) => {
+const MobileHomeContent = () => {
   return (
     <>
       <div className={styles.headingWrapper}>
