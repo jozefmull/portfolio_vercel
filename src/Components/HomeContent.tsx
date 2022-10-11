@@ -11,7 +11,7 @@ const DesktopHomeContent = () => {
     const refPar3 = useRef<HTMLParagraphElement>(null)
 
     const heading = 'Hello, my name is Jozef Müller'
-    const par1 = `I am ${getAge('1997/05/08')} years old graduate aspiring to become a Frontend Developer.`
+    const par1 = `I am ${getAge('1997/05/08')} years old graduate aspiring to become a `
     const par2 = `If you would like to see my work feel free to visit my ` 
     const par3 = `You can contact me via email at: `
 
@@ -23,16 +23,16 @@ const DesktopHomeContent = () => {
   return (
     <>
         <div className={styles.headingWrapper}>
-            <h2 ref={refHeading}> </h2>
+            <h2 id='quitFadeLeft' ref={refHeading}> </h2>
         </div>
         <div className={styles.par1Wrapper}>
-            <p ref={refPar1}></p>
+            <p id='quitFadeLeft' ref={refPar1}></p>
         </div>
         <div className={styles.par2Wrapper}>
-            <p ref={refPar2}></p>
+            <p id='quitFadeLeft' ref={refPar2}></p>
         </div>
         <div className={styles.par3Wrapper}>
-            <p ref={refPar3}></p>
+            <p id='quitFadeLeft' ref={refPar3}></p>
         </div>
     </>
   )

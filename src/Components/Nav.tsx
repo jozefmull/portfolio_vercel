@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import HeaderHomeLink from './HeaderLinks'
 
 import { gsap } from 'gsap'
-import { DeclareNavTimeline, toggleTimeline } from '../Helpers/GsapHelpers'
+import { DeclareNavTimeline, toggleTimeline, animateElementsOut } from '../Helpers/GsapHelpers'
 
 import styles from '../Css/Nav.module.css'
 
@@ -37,22 +37,20 @@ const Nav = () => {
 
         const target = e.target as HTMLAnchorElement;
 
-        console.log(target.href);
-
         if (target.href && !tlnav.isActive()) {
             if(`/${target.href.split('/').pop()}` ===  location.pathname){
                 toggleTimeline(tlnav)       
             }          
             else {
-                // setTimeout(() => {
-
-                    // animateElementsOut()
+                setTimeout(() => {
+                    animateElementsOut()
 
                     setTimeout(() => {
                         navigate(`/${target.href.split('/').pop()}`)
                     }, (tlnav.duration() * 1000));
 
-                // }, (tlnav.duration() * 1000) + 300)
+                }, (tlnav.duration() * 1000) + 300)
+
                 toggleTimeline(tlnav)       
             }          
         }

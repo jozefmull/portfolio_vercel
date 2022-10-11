@@ -69,7 +69,7 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={formik.handleSubmit} className={styles.contactForm} >
-        <div id='quitFadeDown' className={styles.inputWrap} >
+        <div id='quitFadeRight' className={styles.inputWrap} >
             <input
                 id='name'
                 name='name'
@@ -85,7 +85,7 @@ const ContactForm = () => {
                 <span className={styles.contactformerrormsg}>{formik.errors.name}</span>
             ) : formik.touched.name ? <span className={styles.check}>&#10003;</span> : null}
         </div>
-        <div id='quitFadeDown'className={styles.inputWrap}>
+        <div id='quitFadeRight'className={styles.inputWrap}>
             <input
                 id='email'
                 name='email'
@@ -101,7 +101,7 @@ const ContactForm = () => {
                 <span className={styles.contactformerrormsg}>{formik.errors.email}</span>
             ) : formik.touched.email ? <span className={styles.check}>&#10003;</span> : null}
        </div>       
-        <div id='quitFadeDown' className={styles.inputWrap}>
+        <div id='quitFadeRight' className={styles.inputWrap}>
             <textarea
                 id='message'
                 name='message'
@@ -117,7 +117,7 @@ const ContactForm = () => {
             ) : formik.touched.message ? <span className={styles.check}>&#10003;</span> : null}
         </div>
         {/* if every value of errors object is null disable is false else is true  */}
-        <button ref={buttonRef} type='submit' disabled={Object.values(formik.errors).every(x => x === null) ? false : true}>SEND</button>
+        <button id='quitFadeRight' ref={buttonRef} type='submit' disabled={Object.values(formik.errors).every(x => x === null) ? false : true}>SEND</button>
      </form>
   )
 }

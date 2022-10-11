@@ -19,9 +19,9 @@ const Portfolio = () => {
         <h1>PORTFOLIO</h1>
       </div>
 
-      <h2 ref={headingRef}> </h2>
-      <div>Filter</div>
-      <div>Projects</div>
+      <h2 ref={headingRef} id='quitFadeUp'> </h2>
+      <div id='quitFadeUp'>Filter</div>
+      <div id='quitFadeUp'>Projects</div>
     </div>
   )
 }

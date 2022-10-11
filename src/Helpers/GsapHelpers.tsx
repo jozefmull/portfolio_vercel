@@ -30,10 +30,23 @@ export const DeclareNavTimeline = (tlnav:any, navRef:HTMLElement, ulWrapRef:HTML
 export const animateContactForm = (textRef:HTMLInputElement, emailRef:HTMLInputElement, textareaRef:HTMLTextAreaElement, btnRef:HTMLButtonElement) => {
     let formtl = gsap.timeline({paused:true, reversed:true})
 
-    formtl.to(textRef, {duration:0.2, y:0, opacity:1, delay: 0.75})
-          .to(emailRef, {duration:0.2, y:0, opacity:1})
-          .to(textareaRef, {duration:0.2, y:0, opacity:1})
+    formtl.to(textRef, {duration:0.2, x:0, opacity:1, delay: 0.75})
+          .to(emailRef, {duration:0.2, x:0, opacity:1})
+          .to(textareaRef, {duration:0.2, x:0, opacity:1})
           .to(btnRef, {duration:0.2, scale:1, opacity:1})
     
     formtl.play()
+}
+export const animOutTl = gsap.timeline({paused:true, reversed:true})
+export const animateElementsOut = () => {
+    animOutTl.to('#quitFadeUp', {duration: 0.2 ,y:'-100', opacity:0,  stagger:0.1}, 'start')
+             .to('#quitFadeDown', {duration: 0.2 ,y:'100', opacity:0,  stagger:0.1}, 'start')
+             .to('#quitFadeLeft', {duration: 0.1 ,x:'-100', opacity:0,  stagger:0.1}, 'start')
+             .to('#quitFadeRight', {duration: 0.1 ,x:'100', opacity:0,  stagger:0.1}, 'start')
+             .to('#load', {duration: 0.3 , scaleX: 1, transformOrigin: 'left'})
+             .to('#load', {duration: 0.3 , scaleX: 0, transformOrigin: 'right', delay:0.3})  
+            //  .to('#homelinkHeader', {duration:0.2, x:'-100', opacity:0}, 'start')
+            //  .to('#burgerHeader', {duration:0.2, x:'100', opacity:0}, 'start')
+
+    animOutTl.play()
 }

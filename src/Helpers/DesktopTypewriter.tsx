@@ -26,16 +26,28 @@ export const typewriterDesktop = (heading:string, outputHeading:HTMLElement, par
       }, speed)  
 }
 const par1typewriter = (par1:string, outputPar1:HTMLElement, par2:string, outputPar2:HTMLElement,par3:string, outputPar3:HTMLElement, speed:number) => {
-    let i = 0
-    
+    let i = 0,
+    j = 0,
+    text = 'Frontend Developer.',
+    strong = document.createElement('strong')
+    strong.style.fontWeight = '600'
+
     outputPar1.style.setProperty('--homePar1AfterDisplay', 'unset')
 
     const timerId = setInterval(() => {
         outputPar1.innerHTML += par1.charAt(i)
         i++
         if (i === par1.length) {
-            outputPar1.style.setProperty('--homePar1AfterDisplay', 'none')
-            par2typewriter(par2, outputPar2,par3, outputPar3, speed)  
+            outputPar1.appendChild(strong)
+            const timer2Id = setInterval(() => {
+                strong.innerHTML += text.charAt(j) 
+                j++
+                if (j === text.length) {
+                    outputPar1.style.setProperty('--homePar1AfterDisplay', 'none')
+                    par2typewriter(par2, outputPar2,par3, outputPar3, speed)
+                    clearInterval(timer2Id)
+                }
+            }, speed)  
             clearInterval(timerId)
         }
       },speed) 

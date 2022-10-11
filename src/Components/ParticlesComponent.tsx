@@ -28,7 +28,7 @@ const ParticlesComponent = () => {
             }
           },
           "opacity": {
-            "value": 0.7,
+            "value": 0.6,
             "random": true
           },
           "size": {
@@ -37,7 +37,6 @@ const ParticlesComponent = () => {
             "anim": {
               "enable": true,
               "speed": 30,
-              // "size_min": 100,
               "sync": false
             }
           },
@@ -50,7 +49,7 @@ const ParticlesComponent = () => {
           },
           "move": {
             "enable": true,
-            "speed": 8,
+            "speed": 15,
             "direction": "none",
             "random": true,
             "straight": false,
@@ -63,7 +62,7 @@ const ParticlesComponent = () => {
           "events": {
             "onhover": {
               "enable": true,
-              "mode": ["bubble"]
+              "mode": ["bubble", "grab"]
             },
             "resize": true
           },
@@ -71,7 +70,7 @@ const ParticlesComponent = () => {
             "grab": {
               "distance": 400,
               "line_linked": {
-                "opacity": 1
+                "opacity": 0.7
               }
             },
             "bubble": {

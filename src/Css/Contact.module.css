@@ -77,7 +77,7 @@
   padding-left: 15px;
   margin-top: 20px;
   transition: all 0.5s ease-in-out;
-  transform: translateY(-30px);
+  transform: translateX(25%);
   opacity: 0;
 }
 
@@ -94,9 +94,8 @@
   margin-bottom: 0;
   margin-top: 20px;
   transition: all 0.5s ease-in-out;
-  transform: translateY(-30px);
+  transform: translateX(25%);
   opacity: 0;
-
 }
 
 .contactForm > .inputWrap > input[type='text']:focus,

@@ -23,11 +23,9 @@ const Contact = () => {
           <p>If you want to get in touch and talk please fill up this form or contact me via email at:</p>
           <address><a href='mailto:dodkymull@gmail.com'>dodkymull@gmail.com</a></address>
         </div>
-          {/* <div id="quitFadeUp" className={styles.headingWrap}> */}
-          <h2 ref={refHeading} id="quitFadeUp" className={styles.contact_heading}> </h2>
-          {/* </div> */}
+          <h2 ref={refHeading} id='quitFadeRight' className={styles.contact_heading}> </h2>
           {/* <Separator /> */}
-          <p ref={textRef} id="quitFadeUp" className={styles.text}></p>
+          <p ref={textRef} id='quitFadeRight' className={styles.text}></p>
           <ContactForm />
       </div>
   )

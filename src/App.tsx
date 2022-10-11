@@ -7,6 +7,7 @@ import Contact from './Pages/Contact';
 
 import ParticlesComponent from './Components/ParticlesComponent';
 import Nav from './Components/Nav';
+import LoadingBar from './Components/LoadingBar';
 
 import styles from './Css/App.module.css'
 // import { } from 'gsap'
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className={styles.app}>
       <ParticlesComponent/>
+      <LoadingBar/>
       <Nav/>
       <div className={styles.container}>
         <Routes>
