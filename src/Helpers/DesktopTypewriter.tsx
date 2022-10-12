@@ -62,6 +62,9 @@ const par2typewriter = (par2:string, outputPar2:HTMLElement,par3:string, outputP
     let link = document.createElement('a')
     link.href = '/portfolio'
     link.title = 'portfolio-page'
+    link.id = 'homepage-portfolio-link'
+    // link.addEventListener('click', (e) => handlePortfolioLinkClick(e))
+
 
     const timerId = setInterval(() => {
         outputPar2.innerHTML += par2.charAt(i)

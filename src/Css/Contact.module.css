@@ -220,4 +220,7 @@ select:-webkit-autofill:focus {
   .contactForm > button {
     max-width:calc(100% - 2px);
   }
+  .contact .text{
+    font-size: 0.9rem;
+  }
 }

@@ -37,6 +37,7 @@ const typewriterText = (text:string, textOutput:HTMLParagraphElement, speed:numb
     let link = document.createElement('a')
     link.href = `mailto:${emailText}`
     link.title = 'email-address'
+    link.style.fontWeight = '600'
 
     const timerId = setInterval(() => {
         textOutput.innerHTML += text.charAt(i)
@@ -68,7 +69,41 @@ export const typewriterPortfolio = (heading:string, outputHeading:HTMLHeadingEle
         outputHeading.innerHTML += heading.charAt(i)
         i++
         if (i === heading.length) {
-          clearInterval(timerId)
+            clearInterval(timerId)
+        }
+      }, speed)  
+}
+
+//typewriter PROJECT DETAILS PAGE
+export const typewriterProjectDetails = (heading:string, outputHeading:HTMLHeadingElement, shortDesc:string, outputShortDesc:HTMLParagraphElement) => {
+    const speed = 60
+    let i = 0
+    outputHeading.style.setProperty('--projectDetailsHeadingAfterDisplay', 'unset')
+
+    outputHeading.innerHTML = ''
+    outputShortDesc.innerHTML = ''
+    outputShortDesc.style.setProperty('--projectDetailsshortDescAfterDisplay', 'none')
+
+    const timerId = setInterval(() => {
+        outputHeading.innerHTML += heading.charAt(i)
+        i++
+        if (i === heading.length) {
+            outputHeading.style.setProperty('--projectDetailsHeadingAfterDisplay', 'none')
+            typewriterProjDetailsPar(shortDesc, outputShortDesc, 20)
+            clearInterval(timerId)
+        }
+      }, speed)  
+}
+const typewriterProjDetailsPar = (shortDesc:string, outputShortDesc:HTMLParagraphElement, speed:number) => {
+    let i = 0
+
+    outputShortDesc.style.setProperty('--projectDetailsshortDescAfterDisplay', 'unset')
+
+    const timerId = setInterval(() => {
+        outputShortDesc.innerHTML += shortDesc.charAt(i)
+        i++
+        if (i === shortDesc.length) {
+            clearInterval(timerId)
         }
       }, speed)  
 }

@@ -2,10 +2,10 @@ import {useEffect, useRef} from 'react'
 import { NavLink } from 'react-router-dom'
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import HeaderHomeLink from './HeaderLinks'
+// import HeaderHomeLink from './HeaderLinks'
 
 import { gsap } from 'gsap'
-import { DeclareNavTimeline, toggleTimeline, animateElementsOut } from '../Helpers/GsapHelpers'
+import { DeclareNavTimeline, toggleTimeline, animateElementsOut, animOutTl } from '../Helpers/GsapHelpers'
 
 import styles from '../Css/Nav.module.css'
 
@@ -49,7 +49,7 @@ const Nav = () => {
                         navigate(`/${target.href.split('/').pop()}`)
                     }, (tlnav.duration() * 1000));
 
-                }, (tlnav.duration() * 1000) + 300)
+                }, (animOutTl.duration() * 1000))
 
                 toggleTimeline(tlnav)       
             }          
@@ -58,9 +58,9 @@ const Nav = () => {
 
   return (
     <div className={styles.nav}>
-        <div id="homelinkHeader"  className={styles.col}>
+        {/* <div id="homelinkHeader"  className={styles.col}>
                 <HeaderHomeLink/>
-        </div>  
+        </div>   */}
         <div className={styles.col}>
                 <button id="burgerHeader" className={styles.special_con}
                  onClick={() => toggleTimeline(tlnav) }

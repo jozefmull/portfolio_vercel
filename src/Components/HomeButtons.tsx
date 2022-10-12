@@ -11,7 +11,7 @@ const HomeButtons = () => {
 
   useEffect(() => {
     // @ts-ignore: Object is possibly 'null'
-    gsap.to([...refBtnWrap.current.children], {duration:0.3,  y:0, scale:1, opacity:1, ease:Power4.easeInOut, stagger:0.25, delay:2.5})
+    gsap.to([...refBtnWrap.current.children], {duration:0.3,  y:0, scale:1, opacity:1, ease:Power4.easeInOut, stagger:0.1, delay:0.5})
   }, [])
 
   const handleBtnLinkClick = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -22,7 +22,7 @@ const HomeButtons = () => {
 
     setTimeout(() => {
       navigate(`/${target.href.split('/').pop()}`)
-    }, (animOutTl.duration() * 1000))
+    }, (animOutTl.duration() * 1000) + 300)
   }
   
   return (

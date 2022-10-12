@@ -23,7 +23,7 @@ h1,h2,h3,h4,h5,h6{
   position: absolute;
   z-index: -1;
 }
-a {
+a{
   padding: 0.5rem 0;
   color: #cacaca;
   display: inline-block;
@@ -34,7 +34,7 @@ a {
   padding: 0px;
   text-decoration: none;
 }
-a::after {
+a:after {
   position: absolute;
   content: '';
   top: 0;
