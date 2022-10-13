@@ -12,6 +12,7 @@
       opacity 0.2s ease-out;
     transition: transform 0.7s cubic-bezier(0.7, 0, 0.25, 1) 0.25s,
       opacity 0.2s ease-out 0.75s;
+    z-index: 50;
 }
 .arrows_link > span {
     display: inline-block;
@@ -195,20 +196,23 @@
     color: #ff9307 !important;
 }
 /* END OF ARROWS */
-  
-  /* @media (max-width: 770px) {
-    .arrows_link {
-      width: 50px;
+
+@media only screen and (max-width: 768px) {
+    .arrows_link{
+        width: 50px;
+    }
+    .arrowLeft > em,
+    .arrowRight > em {
+        height: 24px;
+        width: 24px;
+    }
+    .arrows_link > span{
+        display: none;
+    }
+    .arrowRight > em {
+        right: calc(50% - 10px);
+    }
+    .arrowLeft > em {
+        left: calc(50% - 10px);
+    }
 }
-.arrows_link em {
-      width: 26px;
-      height: 26px;
-}
-}
-  
-  @media (max-width: 1000px) {
-    .arrows_link span {
-      display: none !important;
-}
-} */
-  

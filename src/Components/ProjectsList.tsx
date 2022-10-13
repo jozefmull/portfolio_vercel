@@ -1,6 +1,6 @@
 import { Project } from '../Context/interface'
 
-import ProjectCard from './ProjectCard'
+import ProjectCard from './ProjectCards/ProjectCard'
 
 import styles from '../Css/ProjectList.module.css'
 
@@ -11,11 +11,11 @@ type Props = {
 const ProjectsList = ({projects}: Props) => {
 
   return (
-    <div className={styles.projectList}>
+    <ul className={styles.projectList}>
       {projects.map((p,id) => (
-        <ProjectCard key={id} project={p}/>
+        <ProjectCard key={`project-card-${id}`} project={p}/>
       ))}
-    </div>
+    </ul>
   )
 }
 

@@ -34,3 +34,19 @@
       color: #cacaca;
     }
 }
+
+@media only screen and (max-width: 1120px) {
+  .portfolio{
+    max-width: 850px;
+  }
+}
+@media only screen and (max-width: 956px) {
+  .portfolio{
+    max-width: 750px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .portfolio{
+    max-width: 550px;
+  }
+}

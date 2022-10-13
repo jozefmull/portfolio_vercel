@@ -54,3 +54,4 @@ export const animateElementsOut = () => {
             
     animOutTl.play()
 }
+

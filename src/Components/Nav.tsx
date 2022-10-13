@@ -76,15 +76,9 @@ const Nav = () => {
                     <div className={styles.polygon} ref={secondPolygonRef}></div>
                     <div className={styles.polygon} ref={thirdPolygonRef}></div>
                     <ul ref={navUlRef}>
-                        <li><NavLink to="/" 
-                        onClick={(e) => handleLinkClickAnimation(e)}
-                        >HOME</NavLink></li>
-                        <li><NavLink to="/portfolio" 
-                        onClick={(e) => handleLinkClickAnimation(e)}
-                        >PORTFOLIO</NavLink></li>
-                        <li><NavLink to="/contact" 
-                        onClick={(e) => handleLinkClickAnimation(e)}
-                        >CONTACT</NavLink></li>
+                        <li><NavLink to="/" onClick={(e) => handleLinkClickAnimation(e)} >HOME</NavLink></li>
+                        <li><NavLink to="/portfolio" onClick={(e) => handleLinkClickAnimation(e)} >PORTFOLIO</NavLink></li>
+                        <li><NavLink to="/contact"  onClick={(e) => handleLinkClickAnimation(e)} >CONTACT</NavLink></li>
                     </ul>
                 </div>
             </nav>

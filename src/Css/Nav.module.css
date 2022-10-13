@@ -156,17 +156,19 @@
   color: #fff;
   cursor: pointer;
 }
-
-
-  @media only screen and (max-width: 480px) {
-    .col:nth-child(1) {
-      position: fixed;
-      left: 25px;
-      top: 30px;
-    }
-    .col:nth-child(2) {
-      position: fixed;
-      right: 25px;
-      top: 25px;
-    }
+@media only screen and (max-width: 480px) {
+  .col{
+    right: 15px;
+    top: unset;
+    bottom: 15px;
+    border-radius: 50%;
+    padding:9px 5px;
   }
+  .col > button{
+    position: relative;
+    top: 3px;
+  }
+  .special_con .bar{
+    width: 45px;
+  }
+}

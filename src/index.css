@@ -11,6 +11,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #cacaca;
+  background: rgb(32,32,32) !important;
+  background: radial-gradient(circle, #333 0%, #1e1e1e 100%) !important;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

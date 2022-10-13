@@ -1,4 +1,4 @@
-import styles from '../Css/ProjectList.module.css'
+import styles from '../../Css/ProjectList.module.css'
 
 type Props = {
     title: string
