@@ -1,8 +1,7 @@
 import {useEffect, useRef} from 'react'
 import { NavLink } from 'react-router-dom'
 import { useLocation, useNavigate } from 'react-router-dom';
-
-// import HeaderHomeLink from './HeaderLinks'
+import {BsFillHexagonFill} from 'react-icons/bs'
 
 import { gsap } from 'gsap'
 import { DeclareNavTimeline, toggleTimeline, animateElementsOut, animOutTl } from '../Helpers/GsapHelpers'
@@ -21,9 +20,9 @@ const Nav = () => {
     let botArrRef = useRef<HTMLSpanElement>(null);
     let midArrRef = useRef<HTMLSpanElement>(null);
 
-    let firstPolygonRef = useRef<HTMLDivElement>(null);
-    let secondPolygonRef = useRef<HTMLDivElement>(null);
-    let thirdPolygonRef = useRef<HTMLDivElement>(null);
+    let firstPolygonRef = useRef<HTMLSpanElement>(null);
+    let secondPolygonRef = useRef<HTMLSpanElement>(null);
+    let thirdPolygonRef = useRef<HTMLSpanElement>(null);
 
     let tlnav = gsap.timeline({paused: true, reversed: true})
 
@@ -57,7 +56,7 @@ const Nav = () => {
     }
 
   return (
-    <div className={styles.nav}>
+    <header className={styles.nav} >
         {/* <div id="homelinkHeader"  className={styles.col}>
                 <HeaderHomeLink/>
         </div>   */}
@@ -70,11 +69,11 @@ const Nav = () => {
                     <span className={`${styles.bar} ${styles.arrow_bottom_fall}`} ref={botArrRef} ></span>
                 </button>
             </div>
-            <nav ref={animNavRef} className={styles.navigation} >
+            <nav ref={animNavRef} className={styles.navigation} id='navigation'>
                 <div className={styles.ulNavWrapper} ref={ulWrapRef}>
-                    <div className={styles.polygon} ref={firstPolygonRef}></div>
-                    <div className={styles.polygon} ref={secondPolygonRef}></div>
-                    <div className={styles.polygon} ref={thirdPolygonRef}></div>
+                    <span ref={firstPolygonRef} className={styles.polygon} ><BsFillHexagonFill /></span>
+                    <span ref={secondPolygonRef} className={styles.polygon} ><BsFillHexagonFill /></span>
+                    <span ref={thirdPolygonRef} className={styles.polygon} ><BsFillHexagonFill /></span>
                     <ul ref={navUlRef}>
                         <li><NavLink to="/" onClick={(e) => handleLinkClickAnimation(e)} >HOME</NavLink></li>
                         <li><NavLink to="/portfolio" onClick={(e) => handleLinkClickAnimation(e)} >PORTFOLIO</NavLink></li>
@@ -82,7 +81,7 @@ const Nav = () => {
                     </ul>
                 </div>
             </nav>
-    </div>
+    </header>
   )
 }
 

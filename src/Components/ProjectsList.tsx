@@ -18,11 +18,13 @@ const ProjectsList = ({projects}: Props) => {
   }, [projCardRef])
 
   return (
-    <ul className={styles.projectList}  ref={projCardRef}>
-      {projects.map((p,id) => (
-        <ProjectCard key={`project-card-${id}`} project={p}/>
-      ))}
-    </ul>
+    <section>
+      <ul className={styles.projectList}  ref={projCardRef}>
+        {projects.map((p,id) => (
+          <ProjectCard key={`project-card-${id}`} project={p}/>
+        ))}
+      </ul>
+    </section>
   )
 }
 

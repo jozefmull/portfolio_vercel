@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    cursor: grab;
+    /* cursor: grab; */
 }
 .home > .screenReaders {
     display: none;
@@ -45,7 +45,15 @@
   animation: blink-caret 0.65s step-end infinite;
   font-weight: 900;
 }
-.home > .headingWrapper {
+.home > section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 618px;
+}
+.home > section > .headingWrapper {
     max-width: 520px;
     display: block;
     padding: 1.25rem 0;
@@ -53,31 +61,31 @@
     cursor:default;
     width: 100%;
 }
-.home > .par1Wrapper,
-.home > .par2Wrapper,
-.home > .par3Wrapper{
+.home > section > .par1Wrapper,
+.home > section > .par2Wrapper,
+.home > section > .par3Wrapper{
     padding: 0.15rem 0;
     display: block;
     min-height: 23px;
     cursor: default !important;
     width: 100%;
 }
-.home > .par1Wrapper {
+.home > section > .par1Wrapper {
     max-width: 618px;
 }
-.home > .par1Wrapper > p::after{
+.home > section > .par1Wrapper > p::after{
   display: var(--homePar1AfterDisplay);
 }
-.home > .par2Wrapper {
+.home > section > .par2Wrapper {
     max-width: 590px;
 }
-.home > .par2Wrapper > p::after{
+.home > section > .par2Wrapper > p::after{
   display: var(--homePar2AfterDisplay);
 }
-.home > .par3Wrapper {
+.home > section > .par3Wrapper {
     max-width: 515px;
 }
-.home > .par3Wrapper > p::after{
+.home > section > .par3Wrapper > p::after{
   display: var(--homePar3AfterDisplay);
 }
 
@@ -345,7 +353,7 @@
       line-height: 2.25rem;
       height: unset !important;
     }
-    .home .headingWrapper{
+    .headingWrapper{
       max-width: 300px !important;
     }
     .home .btnWrapper > button > a{

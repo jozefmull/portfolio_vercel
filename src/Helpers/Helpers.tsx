@@ -107,3 +107,12 @@ const typewriterProjDetailsPar = (shortDesc:string, outputShortDesc:HTMLParagrap
         }
       }, speed)  
 }
+
+
+export const mergeArrays = (...arrays:string[][]) => {
+    let jointArray:string[] = [];
+    arrays.forEach((array) => {
+      jointArray = [...jointArray, ...array];
+    });
+    return [...new Set([...jointArray])];
+}

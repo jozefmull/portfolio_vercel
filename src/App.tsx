@@ -15,9 +15,9 @@ import styles from './Css/App.module.css'
 
 function App() {
   const location = useLocation()
-  
+
   return (
-    <div className={styles.app}>
+    <section className={styles.app}>
       <ParticlesComponent/>
       <LoadingBar/>
       {!location.pathname.includes('project') &&  <ArrowNavigation/>}
@@ -27,10 +27,10 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/portfolio' element={<Portfolio/>}/>
           <Route path='/contact' element={<Contact/>}/>
-          <Route path='/portfolio/project/:projID' element={<ProjectDetails/>}/>
+          <Route path='/project/:projID' element={<ProjectDetails/>}/>
         </Routes>
       </div>
-    </div>
+    </section>
   );
 }
 

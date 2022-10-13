@@ -5,7 +5,7 @@
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    margin: 15px 0px;
+    margin: 15px 0px 0px 0px;
     list-style: none;
     padding: 0px;
     opacity: 0;
@@ -13,7 +13,7 @@
 }
 /* SINGLE PROJECT CARD */
 .item_card {
-    min-width: 400px;
+    /* min-width: 400px; */
     padding: 15px;
     text-align: center;
     width: calc(50% - 30px);
@@ -21,7 +21,6 @@
   .item_card > a{
     width: 100%;
     position: relative;
-    display: unset;
     transition: unset;
     box-shadow: 8px 10px 5px 0px rgba(0, 0, 0, 0.25);
   }
@@ -40,15 +39,6 @@
     content: unset;
   }
   .item_card > a > *{
-    pointer-events: none;
-  }
-  .item_card > a > .main_info > .back > ul > li:last-child{
-    pointer-events: all;
-  }
-  .item_card > a > .main_info > .back > ul > li:last-child:hover {
-    color: var(--main-color);
-  }
-  .item_card > a > .main_info > .back > ul > li:last-child:active {
     pointer-events: none;
   }
   .item_card_header {
@@ -101,6 +91,7 @@
     position: relative;
     overflow: hidden;
     max-height: 218px;
+    line-height: 0;
   }
   .main_info .back{
     position: absolute;
@@ -124,20 +115,25 @@
   }
   .main_info .back ul li{
     margin: 0.2rem;
-    padding: 0.5rem;
+    padding:0.8rem 0.9rem;
     background-color: #202020;
     text-transform: uppercase;
     font-size: 0.75rem;
     border-radius: 3px;
     font-weight: 500;
+    line-height: 0;
   }
-  .main_info .back ul li:last-child{
+  .back > ul > li:last-child{
+    pointer-events: all;
     position: absolute;
     bottom: 15px;
     transition: all 325ms ease-in-out;
   }
-  .main_info .back ul li:last-child:hover{
+  .back > ul > li:last-child:hover {
     color: var(--main-color);
+  }
+  .back > ul > li:last-child:active {
+    pointer-events: none;
   }
   .item_card:hover .back{
     top: 0;
@@ -187,23 +183,10 @@
     }
   }
 /* END OF SINGLE PROJECT CARD */
-
-@media only screen and (max-width: 1120px) {
+ @media only screen and (max-width: 956px) {
   .item_card{
-    min-width: 375px;
-  }
-  .main_info{
-    max-height: 182px;
-  }
-}
-@media only screen and (max-width: 956px) {
-  .item_card{
-    min-width: 355px;
     padding: 10px;
     width: calc(50% - 20px);
-  }
-  .main_info{
-    max-height: 164px;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -211,20 +194,6 @@
     min-width: unset;
     padding: 10px 0px;
     width: 100%;
-  }
-  .main_info{
-    height: 255px;
-    max-height: unset;
-  }
-}
-@media only screen and (max-width: 620px) {
-  .main_info{
-    height: 230px;
-  }
-}
-@media only screen and (max-width: 580px) {
-  .main_info{
-    height: 200px;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -235,14 +204,3 @@
     margin-top: 1rem;
   }
 }
-@media only screen and (max-width: 430px) {
-  .main_info{
-    height: 170px;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .main_info{
-    height: 150px; 
-  }
-}
-

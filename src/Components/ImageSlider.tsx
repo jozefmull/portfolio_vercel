@@ -12,6 +12,8 @@ type Props = {
 
 const ImageSlider = ({imgs}: Props) => {
   return (
+    <>
+      {/* <div></div> */}
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation
@@ -19,14 +21,13 @@ const ImageSlider = ({imgs}: Props) => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         slidesPerView={1}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
         id='quitFadeUp'
       >
         {imgs && imgs.map((img, i) => (
           <SwiperSlide key={`gallery-img-${i}`}><img src={img} alt="gallery-img" width={'100%'}/></SwiperSlide>
         ))}
       </Swiper>
+    </>
   )
 }
 

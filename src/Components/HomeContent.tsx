@@ -43,7 +43,7 @@ const DesktopHomeContent = () => {
     }
 
   return (
-    <>
+    <section>
         <div className={styles.headingWrapper}>
             <h2 id='quitFadeLeft' ref={refHeading}> </h2>
         </div>
@@ -56,7 +56,7 @@ const DesktopHomeContent = () => {
         <div className={styles.par3Wrapper}>
             <p id='quitFadeLeft' ref={refPar3}></p>
         </div>
-    </>
+    </section>
   )
 }
 

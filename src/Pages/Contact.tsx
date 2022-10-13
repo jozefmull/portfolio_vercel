@@ -17,17 +17,18 @@ const Contact = () => {
   }, [refHeading, textRef])
 
   return (
-    <div className={styles.contact}>
-        <div className={styles.screenReaders}>
+    <main className={styles.contact}>
+        <section className={styles.screenReaders}>
           <h1>CONTACT</h1>
           <p>If you want to get in touch and talk please fill up this form or contact me via email at:</p>
           <address><a href='mailto:dodkymull@gmail.com'>dodkymull@gmail.com</a></address>
-        </div>
+        </section>
+        <section>
           <h2 ref={refHeading} id='quitFadeRight' className={styles.contact_heading}> </h2>
-          {/* <Separator /> */}
           <p ref={textRef} id='quitFadeRight' className={styles.text}></p>
           <ContactForm />
-      </div>
+        </section>
+     </main>
   )
 }
 

@@ -28,15 +28,15 @@ const ParticlesComponent = () => {
             }
           },
           "opacity": {
-            "value": 0.6,
-            "random": true
+            "value": 0.5,
+            "random": true,
           },
           "size": {
             "value": window.innerWidth > 992 ? 120 : window.innerWidth > 768 ? 100 : window.innerWidth > 480 ? 80 : 50,
             "random": false,
             "anim": {
               "enable": true,
-              "speed": 30,
+              "speed": 50,
               "sync": false
             }
           },

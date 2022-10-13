@@ -18,12 +18,12 @@ export const SocialLinkAnim = (ref:HTMLUListElement) => {
     socialLinksTl.play()
 }
 export const DeclareNavTimeline = (tlnav:any, navRef:HTMLElement, ulWrapRef:HTMLDivElement, ulRef:HTMLUListElement, topArrRef:HTMLSpanElement, botArrRef:HTMLSpanElement, midArrRef:HTMLSpanElement, firstPolygonRef:HTMLDivElement, secondPolygonRef:HTMLDivElement, thirdPolygon:HTMLDivElement) => {
-    tlnav.to(navRef, {duration: 0.5, y:0, ease:Power4.easeInOut}, 'start')
-         .to(ulWrapRef, {duration: 0.5, height: 300, ease:Power4.easeInOut})
-         .to(ulRef, {duration:0.3,  x:0, ease:Power4.easeInOut, stagger:0.1}, '-=0.1')
-         .to(firstPolygonRef, {duration: 0.5, rotate: 70, scale:1, ease:Power4.easeInOut}, 'polygon-=0.7')
-         .to(secondPolygonRef, {duration: 0.5, rotate: 150, scale:1, ease:Power4.easeInOut}, 'polygon-=0.6')
-         .to(thirdPolygon, {duration: 0.5, rotate: 10, scale:1, ease:Power4.easeInOut}, 'polygon-=0.5') 
+    tlnav.to(navRef, {duration: 0.5, height:'100vh', ease:Power4.easeInOut}, 'start')
+         .to(ulWrapRef, {duration: 0.5, height: 300, ease:Power4.easeInOut},'start+=0.25')
+         .to(ulRef, {duration:0.3,  x:0, ease:Power4.easeInOut, stagger:0.1}, '-=0.2')
+         .to(firstPolygonRef, {duration: 0.5, rotate: 70, scale:1, ease:Power4.easeInOut}, 'polygon-=0.6')
+         .to(secondPolygonRef, {duration: 0.5, rotate: 150, scale:1, ease:Power4.easeInOut}, 'polygon-=0.5')
+         .to(thirdPolygon, {duration: 0.5, rotate: 10, scale:1, ease:Power4.easeInOut}, 'polygon-=0.4') 
          .to(topArrRef, {duration: 0.2, rotate: 135, y:7, ease:Power4.easeInOut}, 'start' )
          .to(botArrRef, {duration: 0.2, rotate: '-135', y:'-2', ease:Power4.easeInOut}, 'start')
          .to(midArrRef, {duration: 0.2, width: 0, ease:Power4.easeInOut}, 'start')        

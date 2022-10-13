@@ -32,14 +32,14 @@ const ProjectDetails = () => {
     }, [heading, shortDescTxt])
     
   return (
-    <div className={styles.projectDetailsContainer}>
+    <main className={styles.projectDetailsContainer}>
         {!loading && Object.keys(projectDetails).length !== 0 && (
-            <>
+            <section>
                 <div className={styles.single_item_head_wrap}>
                     <h1 id="quitFadeUp" className={styles.single_item_heading} ref={headingRef}>{name}</h1>
                 </div>
                 <p id="quitFadeUp" ref={shortDescRef} className={styles.shortDesc}>{shortDesc}</p>
-                <div  id="quitFadeUp" className={styles.single_item_buttons} >
+                <section  id="quitFadeUp" className={styles.single_item_buttons} >
                     <button className={styles.single_item_button}>
                         <a href={url} target='_blank' rel='noreferrer'>VISIT THE WEBSITE</a>
                     </button>
@@ -50,9 +50,9 @@ const ProjectDetails = () => {
                             <a href={codeUrl} target='_blank' rel='noreferrer'>CODE</a>
                         </button>
                     )} 
-                </div>
+                </section>
                 <ImageSlider imgs={imgs}/>
-                <div id="quitFadeDown" className={styles.singleContent}>
+                <section id="quitFadeDown" className={styles.singleContent}>
                     <h2  className={styles.single_item_about} >About</h2>
                     <p dangerouslySetInnerHTML={{__html: description}}></p>
                     <h2 className={styles.single_item_tech}>Technologies</h2>
@@ -62,10 +62,10 @@ const ProjectDetails = () => {
                             return <li id="quitFadeLeft" key={id}>{t}</li>;
                         })}
                     </ul>        
-                </div>
-            </>
+                </section>
+            </section>
         )}
-    </div>
+    </main>
   )
 }
 

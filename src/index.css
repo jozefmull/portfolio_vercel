@@ -2,7 +2,6 @@
   --main-color: #ff9307;
   --main-color-hover: #c87101;
 }
-
 body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -13,6 +12,7 @@ body {
   color: #cacaca;
   background: rgb(32,32,32) !important;
   background: radial-gradient(circle, #333 0%, #1e1e1e 100%) !important;
+
 }
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
@@ -23,7 +23,7 @@ body {
 
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
-    width: 8px;
+    width: 5px;
   }
 
   *::-webkit-scrollbar-track {
@@ -32,6 +32,15 @@ body {
 
   *::-webkit-scrollbar-thumb {
     background-color: var(--main-color);
+  }
+  ::-moz-selection { /* Code for Firefox */
+    background: #ff930783;
+    opacity: 0.5;
+  }
+  
+  ::selection {
+    background: #ff930783;
+    opacity: 0.5;
   }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -151,3 +160,5 @@ a:focus:after{
     font-size: 1.5rem !important;
   }
 }
+
+

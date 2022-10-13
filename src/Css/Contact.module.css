@@ -1,11 +1,13 @@
 .contact{
-  padding-top: 125px;
+  padding-top: 100px;
   padding-bottom: 50px;
-  height:100%;
-  overflow: hidden;
+  min-height:calc(100% - 150px);
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .contact .screenReaders{
   display: none;
@@ -239,6 +241,6 @@ select:-webkit-autofill:focus {
     font-size: 0.9rem;
   }
   .contact{
-    padding: 50px 0px;
+    padding: 25px 0px;
   }
 }

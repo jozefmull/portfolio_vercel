@@ -3,12 +3,14 @@ import { GlobalContext } from '../Context/GlobalState'
 import { typewriterPortfolio } from '../Helpers/Helpers'
 
 import ProjectsList from '../Components/ProjectsList'
+import Filter from '../Components/Filter'
+import FilterAnim from '../Components/FilterAnim'
 
 import styles from '../Css/Portfolio.module.css'
 
 const Portfolio = () => {
   const {getProjects, myState} = useContext(GlobalContext)
-  const {loading, error, projects} = myState
+  const {loading, projects} = myState
 
   const headingRef = useRef<HTMLHeadingElement>(null)
 
@@ -21,15 +23,19 @@ const Portfolio = () => {
   }, [])
   
   return (
-    <div className={styles.portfolio}>
-      <div className={styles.screenReaders}>
+    <main className={styles.portfolio}>
+      <section className={styles.screenReaders}>
         <h1>PORTFOLIO</h1>
-      </div>
-
-      <h2 ref={headingRef} id='quitFadeUp'> </h2>
-      <div id='quitFadeUp'>Filter</div>
-      {!loading && projects.length > 0 && (<ProjectsList projects={projects}/>)}
-    </div>
+      </section>
+        <h2 ref={headingRef} id='quitFadeUp'> </h2>
+        {!loading && projects.length > 0 && (
+          <>
+            <Filter projects={projects}/>
+            <ProjectsList projects={projects}/>
+          </>
+        )}
+        {/* <FilterAnim/> */}
+    </main>
   )
 }
 

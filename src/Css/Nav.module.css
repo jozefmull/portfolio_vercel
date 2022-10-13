@@ -4,6 +4,7 @@
     position: fixed;
     right: 35px;
     top: 35px;
+    line-height: 0;
   }
   .special_con {
     cursor: pointer;
@@ -34,7 +35,7 @@
 .navigation {
     width: 100%;
     margin: 0 auto;
-    height: 100vh;
+    height: 0;
     position: fixed;
     background: rgb(32,32,32);
     background: radial-gradient(circle, #333 0%, #1e1e1e 100%);  top: 0;
@@ -42,7 +43,6 @@
     right: 0;
     bottom: 0;
     z-index: 250;
-    transform: translateY(-115%);
     box-shadow: 0px 4px 2px -2px rgb(255 255 255 / 15%);
     display: flex;
     flex-direction: column;
@@ -109,9 +109,6 @@
     transform: scaleX(1);
   }
   .polygon{
-    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    background-color: var(--main-color);
     width: 50px;
     height: 50px;
     position: absolute;
@@ -120,17 +117,30 @@
   }
   .polygon:first-child{
     bottom: -7px;
-    left: -10px;
+    left: -12px;
   }
   .polygon:nth-child(2){
     bottom: 50px;
+    left: 10px;
     width: 25px;
     height: 25px;
-    left: 10px;
   }
   .polygon:nth-child(3){
     bottom: 30px;
     left: 40px;
+    width: 20px;
+    height: 20px;
+  }
+  .polygon > svg{
+    fill: var(--main-color);
+    width: 50px;
+    height: 50px;
+  }
+  .polygon:nth-child(2) > svg{
+    width: 25px;
+    height: 25px;
+  }
+  .polygon:nth-child(3) > svg{
     width: 20px;
     height: 20px;
   }
@@ -161,14 +171,12 @@
     right: 15px;
     top: unset;
     bottom: 15px;
-    padding:3px 5px;
-    background-color: #333;
-  }
-  .col > button{
-    position: relative;
-    top: 3px;
+    padding:10px 0px;
+    /* border-radius: 50%; */
+    background-color: #1a1a1a;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)
   }
   .special_con .bar{
-    width: 45px;
+    width: 35px;
   }
 }

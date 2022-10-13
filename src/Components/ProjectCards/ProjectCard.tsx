@@ -14,7 +14,6 @@ const ProjectCard = ({project}: Props) => {
   const navigate = useNavigate()
 
   const { name, technologies, imgs, mainTech, id:projectId } = project;
-  let projectLink = `/portfolio/project/${projectId}`
 
   const handleLinkClickAnim = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
@@ -25,14 +24,14 @@ const ProjectCard = ({project}: Props) => {
       animateElementsOut()
       
       setTimeout(() => {
-        navigate(`/portfolio/${tmp[tmp.length - 2]}/${tmp[tmp.length - 1]}`, {replace: true})
+        navigate(`/${tmp[tmp.length - 2]}/${tmp[tmp.length - 1]}`, {replace: true})
       }, (animOutTl.duration() * 1000) + 300)
     }
   }
 
   return (
     <li id='quitFadeDown' className={styles.item_card}>
-        <Link id='project-card-link' to={projectLink} onClick={(e) => handleLinkClickAnim(e)}>
+        <Link id='project-card-link' to={`/project/${projectId}`} onClick={(e) => handleLinkClickAnim(e)}>
             <CardHeader name={name} />
             <CardContent imgs={imgs} technologies={technologies} projectId={projectId} mainTech={mainTech}/>
         </Link>
