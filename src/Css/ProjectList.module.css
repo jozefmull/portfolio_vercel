@@ -8,6 +8,8 @@
     margin: 15px 0px;
     list-style: none;
     padding: 0px;
+    opacity: 0;
+    transform: translateY(50px);
 }
 /* SINGLE PROJECT CARD */
 .item_card {
@@ -15,8 +17,6 @@
     padding: 15px;
     text-align: center;
     width: calc(50% - 30px);
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.05, 0.65, 0.18, 1);
   }
   .item_card > a{
     width: 100%;
@@ -227,19 +227,22 @@
     height: 200px;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 480px) {
   .main_info{
-    height: 175px;
+    height: 190px;
+  }
+  .main_info .back ul{
+    margin-top: 1rem;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 430px) {
   .main_info{
-    height: 150px;
+    height: 170px;
   }
 }
 @media only screen and (max-width: 400px) {
   .main_info{
-    height: 125px;
+    height: 150px; 
   }
 }
 

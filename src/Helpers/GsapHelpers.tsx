@@ -24,8 +24,8 @@ export const DeclareNavTimeline = (tlnav:any, navRef:HTMLElement, ulWrapRef:HTML
          .to(firstPolygonRef, {duration: 0.5, rotate: 70, scale:1, ease:Power4.easeInOut}, 'polygon-=0.7')
          .to(secondPolygonRef, {duration: 0.5, rotate: 150, scale:1, ease:Power4.easeInOut}, 'polygon-=0.6')
          .to(thirdPolygon, {duration: 0.5, rotate: 10, scale:1, ease:Power4.easeInOut}, 'polygon-=0.5') 
-         .to(topArrRef, {duration: 0.2, rotate: 135, y:10, ease:Power4.easeInOut}, 'start' )
-         .to(botArrRef, {duration: 0.2, rotate: '-135', y:'-10', ease:Power4.easeInOut}, 'start')
+         .to(topArrRef, {duration: 0.2, rotate: 135, y:7, ease:Power4.easeInOut}, 'start' )
+         .to(botArrRef, {duration: 0.2, rotate: '-135', y:'-2', ease:Power4.easeInOut}, 'start')
          .to(midArrRef, {duration: 0.2, width: 0, ease:Power4.easeInOut}, 'start')        
 }
 export const animateContactForm = (textRef:HTMLInputElement, emailRef:HTMLInputElement, textareaRef:HTMLTextAreaElement, btnRef:HTMLButtonElement) => {

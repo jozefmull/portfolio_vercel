@@ -1,9 +1,7 @@
 .contact{
+  padding-top: 125px;
+  padding-bottom: 50px;
   height:100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
   overflow: hidden;
   width: 100%;
   max-width: 1000px;
@@ -216,11 +214,31 @@ select:-webkit-autofill:focus {
   }
 }
 
+
+@media only screen and (max-width: 1120px) {
+  .contact{
+    max-width: 850px;
+  }
+}
+@media only screen and (max-width: 956px) {
+  .contact{
+    max-width: 750px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .contact{
+    max-width: 550px;
+    padding: 75px 0px;
+  }
+}
 @media only screen and (max-width: 480px) {
   .contactForm > button {
     max-width:calc(100% - 2px);
   }
   .contact .text{
     font-size: 0.9rem;
+  }
+  .contact{
+    padding: 50px 0px;
   }
 }

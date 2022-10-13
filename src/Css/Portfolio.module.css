@@ -9,6 +9,7 @@
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
+    padding-bottom: 50px;
 }
 
 .portfolio .screenReaders{
@@ -48,5 +49,11 @@
 @media only screen and (max-width: 800px) {
   .portfolio{
     max-width: 550px;
+    padding: 75px 0px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .portfolio{
+    padding: 50px 0px;
   }
 }

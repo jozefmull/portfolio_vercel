@@ -1,5 +1,5 @@
 export const myRoutes = [
-    {path:"/", title:'home'},
-    {path:"/portfolio", title:'portfolio'},
-    {path:"/contact", title:'contact'},
+    {path:"/", title:'Home'},
+    {path:"/portfolio", title:'Portfolio'},
+    {path:"/contact", title:'Contact'},
 ]

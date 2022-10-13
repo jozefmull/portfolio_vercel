@@ -14,6 +14,25 @@ body {
   background: rgb(32,32,32) !important;
   background: radial-gradient(circle, #333 0%, #1e1e1e 100%) !important;
 }
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #333;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #333;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+  }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -64,4 +83,71 @@ a:focus{
 }
 a:focus:after{
   transform: scaleX(1);
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+  color: var(--main-color) !important;
+}
+.swiper-horizontal>.swiper-pagination-bullets > .swiper-pagination-bullet{
+  background: var(--main-color);
+  border-radius: 0;
+  width: 10px;
+  height: 10px;
+  transition: 325ms all ease-in-out;
+}
+.swiper-horizontal>.swiper-pagination-bullets > .swiper-pagination-bullet-active{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+.swiper-horizontal>.swiper-pagination-bullets{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 15px !important;
+}
+.swiper-horizontal>.swiper-scrollbar{
+  width: 100% !important;
+  left: 0 !important;
+}
+.swiper-scrollbar-drag{
+  background: var(--main-color) !important
+}
+.swiper-slide{
+  cursor: grab !important;
+}
+.swiper{
+  animation-name: animateElIn;
+    animation-delay: 325ms;
+    animation-fill-mode: both;
+    animation-duration: 0.285s;
+    animation-timing-function: cubic-bezier(0.5, 1.2, 0.5, 1.2);
+}
+
+@keyframes animateElIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h1,h2{
+    font-size: 1.8rem !important;
+  }
+  .swiper-button-next{
+    right: 3px !important;
+  }
+  .swiper-button-prev{
+    left: 3px !important;
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after{
+    font-size: 1.5rem !important;
+  }
 }

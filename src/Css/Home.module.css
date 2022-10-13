@@ -33,7 +33,7 @@
 .home p{
     text-align: center;
     padding-right: 5px;
-    height: 23px;
+    /* height: 23px; */
     display: inline-block;
     margin: 0;
     font-size: 1.1rem;
@@ -63,7 +63,7 @@
     width: 100%;
 }
 .home > .par1Wrapper {
-    max-width: 615px;
+    max-width: 618px;
 }
 .home > .par1Wrapper > p::after{
   display: var(--homePar1AfterDisplay);

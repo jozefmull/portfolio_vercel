@@ -1,6 +1,7 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../../Css/ProjectList.module.css'
 import { animateElementsOut, animOutTl } from '../../Helpers/GsapHelpers';
+
 
 import CardHeader from './CardHeader'
 import CardContent from './CardContent';
@@ -11,7 +12,6 @@ type Props = {
 
 const ProjectCard = ({project}: Props) => {
   const navigate = useNavigate()
-  const location = useLocation()
 
   const { name, technologies, imgs, mainTech, id:projectId } = project;
   let projectLink = `/portfolio/project/${projectId}`
@@ -31,7 +31,7 @@ const ProjectCard = ({project}: Props) => {
   }
 
   return (
-    <li id='quitFadeDown' className={styles.item_card} >
+    <li id='quitFadeDown' className={styles.item_card}>
         <Link id='project-card-link' to={projectLink} onClick={(e) => handleLinkClickAnim(e)}>
             <CardHeader name={name} />
             <CardContent imgs={imgs} technologies={technologies} projectId={projectId} mainTech={mainTech}/>
