@@ -1,7 +1,10 @@
-import {useRef, useEffect} from 'react';
+import {useRef, useEffect, useState} from 'react';
 import { useFormik } from 'formik';
-
+import emailjs from '@emailjs/browser';
 import { animateContactForm } from '../Helpers/GsapHelpers';
+
+import CircLoader from '../assets/circloader.svg'
+import Notification from './Notification';
 
 import styles from '../Css/Contact.module.css'
 
@@ -40,11 +43,16 @@ const validate = (values: {name:string|null, email:string|null, message:string|n
 };
 
 const ContactForm = () => {
+    const form = useRef<HTMLFormElement>(null);
     // Refs for gsap animations
     let inputTextRef = useRef<HTMLInputElement>(null);
     let inputEmailRef = useRef<HTMLInputElement>(null);
     let inputTextareaRef = useRef<HTMLTextAreaElement>(null);
     let buttonRef = useRef<HTMLButtonElement>(null);
+
+    const [message, setmessage] = useState(null)
+    const [type, settype] = useState(null)
+    const [issubmitting, setissubmitting] = useState(false)
 
     // Animate on mount
     useEffect(() => {
@@ -62,13 +70,27 @@ const ContactForm = () => {
           // validate values
           validate,
           // on Submit
-          onSubmit: values => {
-            console.log(values)
+          onSubmit: (values) => {
+            setissubmitting(true)
+            try {
+              emailjs.sendForm('service_ztexz79', 'template_d54kzgg', form.current, 'Lg6m-mEJdfm2c3Dse')
+              .then((res) => {
+                    settype('success')
+                    setmessage('Email succesfully sent :) I`ll reply as soon as possible.')
+                    formik.resetForm()
+                    setissubmitting(false)
+              })
+            } catch (error) {
+                  settype('error')
+                  setmessage('Something went wrong please try again or send me an email at dodkymull@gmail.com')
+                  setissubmitting(false)
+            }
           }
     })
 
   return (
-    <form onSubmit={formik.handleSubmit} className={styles.contactForm} >
+    <form onSubmit={formik.handleSubmit} className={styles.contactForm} ref={form}>
+      {message && (<Notification type={type} title='Success' label={message} setmessage={setmessage}/>)}
         <div id='quitFadeRight' className={styles.inputWrap} >
             <input
                 id='name'
@@ -117,7 +139,10 @@ const ContactForm = () => {
             ) : formik.touched.message ? <span className={styles.check}>&#10003;</span> : null}
         </div>
         {/* if every value of errors object is null disable is false else is true  */}
-        <button id='quitFadeRight' ref={buttonRef} type='submit' disabled={Object.values(formik.errors).every(x => x === null) ? false : true}>SEND</button>
+        <button id='quitFadeRight' ref={buttonRef} type='submit' disabled={Object.values(formik.errors).every(x => x === null) ? false : true}>
+          SEND
+          {issubmitting && <img src={CircLoader} alt="circ-loader" />}
+        </button>
      </form>
   )
 }

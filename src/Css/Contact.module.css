@@ -166,6 +166,14 @@ select:-webkit-autofill:focus {
   transform: scale(0.5);
   opacity: 0;
   outline: 1px solid #cacaca;
+  position: relative;
+}
+.contactForm > button > img{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  fill: var(--main-color);
+  width: 20px;
 }
 .contactForm > button::after{
   position: absolute;

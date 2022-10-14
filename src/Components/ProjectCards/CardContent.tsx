@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 import Ribbon from './Ribbon';
 
 import styles from '../../Css/ProjectList.module.css'
