@@ -73,7 +73,7 @@ const ContactForm = () => {
           onSubmit: (values) => {
             setissubmitting(true)
             try {
-              emailjs.sendForm('service_ztexz79', 'template_d54kzgg', form.current, 'Lg6m-mEJdfm2c3Dse')
+              emailjs.sendForm(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY)
               .then((res) => {
                     settype('success')
                     setmessage('Email succesfully sent :) I`ll reply as soon as possible.')

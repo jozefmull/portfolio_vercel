@@ -20,7 +20,7 @@ const CardContent = ({imgs, technologies, projectId, mainTech}: Props) => {
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                backgroundColor: "rgba(0, 0, 0,0.15)",
+                backgroundColor: "rgba(0, 0, 0,0.5)",
                 backgroundBlendMode: "multiply",
             }}
             >
