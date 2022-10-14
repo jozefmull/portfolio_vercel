@@ -16,4 +16,10 @@ const Meta = ({title, description, keywords}: Props) => {
   )
 }
 
+Meta.defaultProps = {
+  title:'Web Developer Portfolio - React, Javascript, UI/UX',
+  description: 'Web Developer Portfolio Website. Front-End developer specialized in Javascript, React and UI/UX. Check out my Github repositories.',
+  keywords: 'web developer portfolio, web developer, portfolio, react, javascript, UI/UX,'
+}
+
 export default Meta

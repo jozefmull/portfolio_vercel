@@ -11,6 +11,7 @@
   .projectDetailsContainer .single_item_heading{
     text-transform: uppercase;
     overflow-wrap: break-word;
+    font-size: 2rem;
   }
   .projectDetailsContainer .single_item_heading:after{
     content: '_';

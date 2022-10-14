@@ -12,7 +12,9 @@ body {
   color: #cacaca;
   background: rgb(32,32,32) !important;
   background: radial-gradient(circle, #333 0%, #1e1e1e 100%) !important;
-
+}
+body *{
+  font-family: 'Montserrat', 'Lato'
 }
 /* ===== Scrollbar CSS ===== */
   /* Firefox */

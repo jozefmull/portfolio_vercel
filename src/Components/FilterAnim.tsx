@@ -1,18 +1,22 @@
-import {useRef} from 'react'
-import styles from '../Css/Portfolio.module.css'
+import {useRef, useContext} from 'react'
+import { GlobalContext } from '../Context/GlobalState'
 import { toggleTimeline } from '../Helpers/GsapHelpers'
+
 import {gsap,Power4} from 'gsap'
 
-type Props = {}
+import styles from '../Css/Portfolio.module.css'
 
-const FilterAnim = (props: Props) => {
+const FilterAnim = () => {
+    const {myState} = useContext(GlobalContext)
+    const {filterValue} = myState
+
     let upperRow = useRef<HTMLElement>(null);
     let text = useRef<HTMLSpanElement>(null);
     let downRow = useRef<HTMLElement>(null);
 
     let tlfilter = gsap.timeline({paused: true, reversed: true})
 
-    tlfilter.to(upperRow.current, {duration:0.1, x: 0, ease:Power4.easeInOut})
+    tlfilter.to(upperRow.current, {duration:0, x: 0, ease:Power4.easeInOut})
         .to(downRow.current, {duration:0.1, x: 0, ease:Power4.easeInOut}, '-=0.1')
         .to(text.current, {duration:0.25 , top: 0,  ease:Power4.easeInOut}  )
         .to(text.current, {duration:0.5 , top: '-25',  ease:Power4.easeInOut, delay:0.5})
@@ -26,7 +30,7 @@ const FilterAnim = (props: Props) => {
         <em ref={upperRow}></em>
         <div className={styles.filterTextWrap}>
             <span ref={text}>{
-            `FILTERING PROJECTS...`}</span>
+            `FILTERING ${filterValue} PROJECTS...`}</span>
         </div>
         <em ref={downRow}></em>
     </div>

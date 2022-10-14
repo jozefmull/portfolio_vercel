@@ -7,6 +7,10 @@ type AppAction =
     | {type: 'GET_PROJECT_DETAILS_REQUEST'}
     | {type: 'GET_PROJECT_DETAILS_SUCCESS', payload: any}
     | {type: 'GET_PROJECT_DETAILS_FAIL', payload: unknown}
+    | {type: 'FILTER_PROJECTS_REQUEST'}
+    | {type: 'FILTER_PROJECTS_SUCCESS', payload: any[]}
+    | {type: 'FILTER_PROJECTS_FAIL', payload: unknown}
+    | {type: 'SET_FILTER_VALUE', payload: string}
 
 // Reducer is how we specify application state changes in response to certain actions to our context
 export const AppReducer = (state:AppState, action:AppAction):AppState => {
@@ -44,6 +48,28 @@ export const AppReducer = (state:AppState, action:AppAction):AppState => {
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+        case 'FILTER_PROJECTS_REQUEST':
+            return {
+                ...state,
+                loading: true,
+            }
+        case 'FILTER_PROJECTS_SUCCESS':
+            return {
+                ...state,
+                loading: false,
+                filteredProjects: action.payload
+            }
+        case 'FILTER_PROJECTS_FAIL':
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        case 'SET_FILTER_VALUE':
+            return {
+                ...state,
+                filterValue: action.payload
             }
         default:
             return state;

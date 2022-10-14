@@ -2,7 +2,9 @@ export interface AppState {
     loading: boolean,
     error: unknown,
     projects: Project[],
-    projectDetails: Project
+    projectDetails: Project,
+    filteredProjects: Project[],
+    filterValue: string
 }
 
 export interface Project {

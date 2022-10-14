@@ -1,7 +1,11 @@
-import {useMemo, useRef, useEffect} from 'react'
+import {useMemo, useRef, useEffect, useContext} from 'react'
+import { GlobalContext } from '../Context/GlobalState'
+
+import FilterAnim from './FilterAnim'
+
 import { Project } from '../Context/interface'
 import { mergeArrays } from '../Helpers/Helpers'
-import {gsap, Power4} from 'gsap'
+import { gsap, Power4 } from 'gsap'
 
 import styles from '../Css/Portfolio.module.css'
 
@@ -19,6 +23,9 @@ const UNWANTED_OPTIONS = [
 ]
 
 const Filter = ({projects}: Props) => {
+  const {filterProjects, myState} = useContext(GlobalContext)
+  const {filterValue, filteredProjects} = myState
+
   const filterRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -29,28 +36,30 @@ const Filter = ({projects}: Props) => {
   let filterValues = mergeArrays(...technologies).map(i => i.toUpperCase()).filter(i => !UNWANTED_OPTIONS.includes(i))
   filterValues.unshift('All')
 
-  const filterRender = useMemo(() => 
+  const filterRender = useMemo(() =>
     filterValues.map((v,i) => (
-      <li 
-        key={`filter-value-${i}`}
-        // className={v.toUpperCase() === selectedValue ? `${styles.portfolio_link} ${styles.activeFilter}` : styles.portfolio_link}
-        // onClick={(e) => handleClick(e)}
-        // style={{"--animation-order": 1 + id}}
-      >
+      <li key={`filter-value-${i}`} onClick={() => filterProjects(v)} className={filterValue === v ? styles.activeFilter : 'inactive'}>
         <span>
           {v.toUpperCase()}
         </span>
       </li>
     ))
-  , [filterValues])
+  , [filterValues, filterProjects, filterValue])
 
   return (
-    <section id='quitFadeUp' className={styles.filter} ref={filterRef}>
-      <ul>
-        {filterRender}
-      </ul>
-      <p>Showing <strong>All</strong> projects</p>
-    </section>
+    <>
+      <section id='quitFadeUp' className={styles.filter} ref={filterRef}>
+        <ul>
+          {filterRender}
+        </ul>
+        {filteredProjects.length === 0 ? (
+          <p>Showing <strong>All</strong> projects. Use the filter to filter them by technology.</p>
+          ) : (
+          <p>Showing <strong>{filterValue}</strong> projects: <strong>{filteredProjects.length}</strong></p>
+        )}
+      </section>
+      <FilterAnim/>
+    </>
   )
 }
 

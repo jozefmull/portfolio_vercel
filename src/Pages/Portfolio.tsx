@@ -4,13 +4,13 @@ import { typewriterPortfolio } from '../Helpers/Helpers'
 
 import ProjectsList from '../Components/ProjectsList'
 import Filter from '../Components/Filter'
-import FilterAnim from '../Components/FilterAnim'
+import Meta from '../Components/Meta'
 
 import styles from '../Css/Portfolio.module.css'
 
 const Portfolio = () => {
   const {getProjects, myState} = useContext(GlobalContext)
-  const {loading, projects} = myState
+  const {loading, projects, filteredProjects} = myState
 
   const headingRef = useRef<HTMLHeadingElement>(null)
 
@@ -18,25 +18,27 @@ const Portfolio = () => {
 
   useEffect(() => {
     typewriterPortfolio(txt, headingRef.current)
-    getProjects()
+    if (projects.length === 0) {
+      getProjects()
+    }
     // eslint-disable-next-line
   }, [])
   
   return (
-    <main className={styles.portfolio}>
-      <section className={styles.screenReaders}>
-        <h1>PORTFOLIO</h1>
-      </section>
-        <h2 ref={headingRef} id='quitFadeUp'> </h2>
-        {!loading && projects.length > 0 && (
-          <>
-            <Filter projects={projects}/>
-            <ProjectsList projects={projects}/>
-          </>
-        )}
-        {/* <FilterAnim/> */}
-    </main>
+    <>
+    <Meta 
+      title={'React Developer Portfolio - Javascript and UI/UX - Web and Mobile'}
+      />
+      <main className={styles.portfolio}>
+        <section className={styles.screenReaders}>
+          <h1>PORTFOLIO</h1>
+        </section>
+          <h2 ref={headingRef} id='quitFadeUp'> </h2>
+          {!loading && (filteredProjects.length === 0 || projects.length > 0) && (<Filter projects={projects}/>)}
+          <ProjectsList projects={!loading && filteredProjects.length > 0 ? filteredProjects : projects}/>
+      </main>
+    </>
   )
 }
-
+// 
 export default Portfolio

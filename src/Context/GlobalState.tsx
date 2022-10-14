@@ -4,19 +4,21 @@ import { AppState, Project } from './interface'
 
 import { db } from '../firebase-config'
 import { collection, getDocs, getDoc, doc } from 'firebase/firestore'
-// import axios from 'axios'
 
 export type ContextProps = {
     myState: AppState,
     getProjects: () => void,
     getProjectById: (id: string) => void,
+    filterProjects: (tech: string) => void
 }
 
 const INITIAL_STATE:AppState = {
     loading: false,
     error: '',
     projects: [],
-    projectDetails: {} as Project
+    projectDetails: {} as Project,
+    filteredProjects: [],
+    filterValue: 'All'
 }
 
 export const GlobalContext = createContext({} as ContextProps)
@@ -56,11 +58,24 @@ export const GlobalProvider: React.FC<Props> = ({ children }) => {
             dispatch({type:'GET_PROJECT_DETAILS_FAIL', payload: error})
         }  
     }
+    // get project details
+    const filterProjects = async(tech:string) => {
+        dispatch({type:'FILTER_PROJECTS_REQUEST'})
+        dispatch({type:'SET_FILTER_VALUE', payload: tech})
+        
+            try {
+                const data = myState.projects.filter(i => i.technologies.includes(tech))
+                dispatch({type:'FILTER_PROJECTS_SUCCESS', payload: data})
+            } catch (error) {
+                dispatch({type:'FILTER_PROJECTS_FAIL', payload: error})
+            }  
+    }
 
     return (<GlobalContext.Provider value={{
             myState,
             getProjects,
-            getProjectById
+            getProjectById,
+            filterProjects,
         }}>
         {children}
     </GlobalContext.Provider>)

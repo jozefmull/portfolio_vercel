@@ -95,7 +95,9 @@
 .filter ul li:hover:after,
 .filter ul li:hover:before,
 .filter ul li:focus:before,
-.filter ul li:focus:after {
+.filter ul li:focus:after,
+.filter ul li.activeFilter:after,
+.filter ul li.activeFilter:before {
   transform: scaleX(1);
 }
 
