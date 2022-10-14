@@ -6,6 +6,8 @@ import ProjectsList from '../Components/ProjectsList'
 import Filter from '../Components/Filter'
 import Meta from '../Components/Meta'
 
+import CircLoader from '../assets/circloader.svg'
+
 import styles from '../Css/Portfolio.module.css'
 
 const Portfolio = () => {
@@ -34,6 +36,7 @@ const Portfolio = () => {
           <h1>PORTFOLIO</h1>
         </section>
           <h2 ref={headingRef} id='quitFadeUp'> </h2>
+          {loading && <img style={{margin: '0 auto'}} src={CircLoader} alt="loader"/> }
           {!loading && (filteredProjects.length === 0 || projects.length > 0) && (<Filter projects={projects}/>)}
           <ProjectsList projects={!loading && filteredProjects.length > 0 ? filteredProjects : projects}/>
       </main>
