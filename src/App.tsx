@@ -10,6 +10,7 @@ import ParticlesComponent from './Components/ParticlesComponent';
 import Nav from './Components/Nav';
 import LoadingBar from './Components/LoadingBar';
 import ArrowNavigation from './Components/ArrowNavigation';
+import Footer from './Components/Footer'
 
 import styles from './Css/App.module.css'
 

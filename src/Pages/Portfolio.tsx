@@ -5,6 +5,7 @@ import { typewriterPortfolio } from '../Helpers/Helpers'
 import ProjectsList from '../Components/ProjectsList'
 import Filter from '../Components/Filter'
 import Meta from '../Components/Meta'
+import Footer from '../Components/Footer'
 
 import CircLoader from '../assets/circloader.svg'
 
@@ -37,8 +38,16 @@ const Portfolio = () => {
         </section>
           <h2 ref={headingRef} id='quitFadeUp'> </h2>
           {loading && <img style={{margin: '0 auto'}} src={CircLoader} alt="loader"/> }
-          {!loading && (filteredProjects.length === 0 || projects.length > 0) && (<Filter projects={projects}/>)}
+          {!loading && (filteredProjects.length === 0 || projects.length > 0) && (
+            <>
+              <Filter projects={projects}/>
+              <ProjectsList projects={filteredProjects.length > 0 ? filteredProjects : projects}/>
+              <Footer/>
+            </>
+          )}
+          {/* {!loading && (filteredProjects.length === 0 || projects.length > 0) && (<Filter projects={projects}/>)}
           <ProjectsList projects={!loading && filteredProjects.length > 0 ? filteredProjects : projects}/>
+          <Footer/> */}
       </main>
     </>
   )

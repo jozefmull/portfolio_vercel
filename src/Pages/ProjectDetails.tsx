@@ -5,6 +5,7 @@ import { typewriterProjectDetails } from '../Helpers/Helpers'
 
 import ImageSlider from '../Components/ImageSlider'
 import Meta from '../Components/Meta'
+import Footer from '../Components/Footer'
 
 import styles from '../Css/ProjectDetails.module.css'
 
@@ -69,6 +70,7 @@ const ProjectDetails = () => {
                 </section>
             )}
         </main>
+        <Footer/>
     </>
   )
 }
