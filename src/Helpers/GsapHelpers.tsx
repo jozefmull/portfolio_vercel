@@ -49,9 +49,8 @@ export const animateElementsOut = () => {
              .to('#quitFadeRight', {duration: 0.1 ,x:'100', opacity:0,  stagger:0.1}, 'start')
              .to('#load', {duration: 0.3 , scaleX: 1, transformOrigin: 'left'})
              .to('#load', {duration: 0.3 , scaleX: 0, transformOrigin: 'right', delay:0.3})  
-            //  .to('#homelinkHeader', {duration:0.2, x:'-100', opacity:0}, 'start')
-            //  .to('#burgerHeader', {duration:0.2, x:'100', opacity:0}, 'start')
-            
+             .to('#burger_button', {duration:0.2, x:'100', opacity:0}, 'start')
+             .to('#burger_button', {duration: 0.2, x: 0, opacity: 1}, 'enter')
     animOutTl.play()
 }
 

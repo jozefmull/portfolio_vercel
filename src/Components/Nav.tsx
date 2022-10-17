@@ -61,7 +61,7 @@ const Nav = () => {
                 <HeaderHomeLink/>
         </div>   */}
         <div className={styles.col}>
-                <button id="burgerHeader" className={styles.special_con}
+                <button id="burger_button" className={styles.special_con}
                  onClick={() => toggleTimeline(tlnav) }
                  >
                     <span className={`${styles.bar} ${styles.arrow_top_fall}`} ref={topArrRef} ></span>

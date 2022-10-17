@@ -1,7 +1,8 @@
-import { useRef }  from 'react'
+import { Children, useRef }  from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { myRoutes } from '../assets/Routes'
 import { animateElementsOut, animOutTl } from '../Helpers/GsapHelpers'
+import { gsap, Power4 } from 'gsap'
 
 import styles from '../Css/Arrows.module.css'
 
@@ -13,10 +14,6 @@ const ArrowNavigation = () => {
   let arrowRight = useRef<HTMLAnchorElement>(null)
   let arrowLeftSpan = useRef<HTMLSpanElement>(null)
   let arrowRightSpan = useRef<HTMLSpanElement>(null)
-
-  // useEffect(() => {
-  //   animateElementsIn()
-  // }, [location])
 
   const getPreviousPage = (id:number) => {
     return myRoutes.find((x, i) => i === id) 
@@ -37,11 +34,16 @@ const ArrowNavigation = () => {
   const arrowClickAnim = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     const target = e.target as HTMLAnchorElement;
-
+    
     animateElementsOut()
+    gsap.to(arrowLeft.current, {duration:0.2, left:'-100'})
+    gsap.to(arrowRight.current, {duration:0.2, right:'-100'})
 
     setTimeout(() => {
       navigate(`/${target.href.split('/').pop()}`)
+      gsap.to(arrowLeft.current, {duration:0.2, left:0})
+      gsap.to(arrowRight.current, {duration:0.2, right:0})
+
     }, (animOutTl.duration() * 1000) + 300)
   }
   
@@ -49,18 +51,18 @@ const ArrowNavigation = () => {
     <>
       {currentRoutes.prevPage !== undefined && ( 
         <NavLink to={currentRoutes.prevPage.path}
-          id="quitFadeLeft enterFadeLeft"
+          id="arrow_left"
           ref={arrowLeft}
           className={`${styles.arrows_link} ${styles.arrowLeft}`}
           onClick={(e) => arrowClickAnim(e)}
           >
           <span ref={arrowLeftSpan}>{currentRoutes.prevPage.title}</span>
-          <em></em>                    
+          <em ></em>                    
         </NavLink>
       )}
       {currentRoutes.nextPage !== undefined && ( 
         <NavLink to={currentRoutes.nextPage.path}
-          id="quitFadeRight enterFadeRight"
+          id="arrow_right"
           ref={arrowRight}
           className={`${styles.arrows_link} ${styles.arrowRight}`}
           onClick={(e) => arrowClickAnim(e)}
