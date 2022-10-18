@@ -13,12 +13,20 @@ import ArrowNavigation from './Components/ArrowNavigation';
 
 import styles from './Css/App.module.css'
 
+import ReactGA from 'react-ga';
+const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID; 
+ReactGA.initialize(TRACKING_ID)
+
 const loader = document.getElementById('page-loader')
 const hideLoader = () => loader.classList.add('loader-hide');
 
 function App() {
   const location = useLocation()
   useEffect(hideLoader, []);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <section className={styles.app}>
