@@ -1,5 +1,5 @@
-import {Routes, Route} from 'react-router-dom'
-import { useLocation } from 'react-router-dom';
+import {useEffect} from 'react'
+import {Routes, Route ,useLocation} from 'react-router-dom'
 
 import Home from './Pages/Home';
 import Portfolio from './Pages/Portfolio';
@@ -10,12 +10,15 @@ import ParticlesComponent from './Components/ParticlesComponent';
 import Nav from './Components/Nav';
 import LoadingBar from './Components/LoadingBar';
 import ArrowNavigation from './Components/ArrowNavigation';
-import Footer from './Components/Footer'
 
 import styles from './Css/App.module.css'
 
+const loader = document.getElementById('page-loader')
+const hideLoader = () => loader.classList.add('loader-hide');
+
 function App() {
   const location = useLocation()
+  useEffect(hideLoader, []);
 
   return (
     <section className={styles.app}>
