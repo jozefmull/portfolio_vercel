@@ -17,10 +17,9 @@ const ParticlesComponent = () => {
         {
           "particles": {
             "number": {
-              "value": window.innerWidth > 992 ? 125 : window.innerHeight > 768 ? 100 : window.innerHeight > 480 ? 80 : 60,
+              "value": window.innerWidth > 992 ? 120 : window.innerWidth > 768 ? 95 : window.innerWidth > 480 ? 70 : 50,
               "density": {
                 "enable": false,
-                "value_area": 500
               }
             },
             "color": {
@@ -98,7 +97,7 @@ const ParticlesComponent = () => {
             },
             "modes": {
               "grab": {
-                "distance": 200,
+                "distance": window.innerWidth > 992 ? 275 : window.innerWidth > 768 ? 225 : window.innerWidth > 480 ? 175 : 125,
                 "line_linked": {
                   "opacity": 0.65
                 }

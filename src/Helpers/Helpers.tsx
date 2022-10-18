@@ -59,21 +59,36 @@ const typewriterText = (text:string, textOutput:HTMLParagraphElement, speed:numb
 }
 
 //typewriter PORTFOLIO PAGE
-export const typewriterPortfolio = (heading:string, outputHeading:HTMLHeadingElement) => {
+export const typewriterPortfolio = (heading:string, outputHeading:HTMLHeadingElement, par:string, outputPar:HTMLParagraphElement) => {
     const speed = 60
     let i = 0
 
     outputHeading.innerHTML = ''
+    outputHeading.style.setProperty('--portfoliotHeadingAfterDisplay', 'unset')
 
     const timerId = setInterval(() => {
         outputHeading.innerHTML += heading.charAt(i)
         i++
         if (i === heading.length) {
+            outputHeading.style.setProperty('--portfoliotHeadingAfterDisplay', 'none')
+            typewriterPortfolioPar(par, outputPar, 20)
             clearInterval(timerId)
         }
       }, speed)  
 }
+const typewriterPortfolioPar = (par:string, outputPar:HTMLParagraphElement, speed:number) => {
+    let i = 0
 
+    outputPar.style.setProperty('--portfoliotParAfterDisplay', 'unset')
+
+    const timerId = setInterval(() => {
+        outputPar.innerHTML += par.charAt(i)
+        i++
+        if (i === par.length) {
+            clearInterval(timerId)
+        }
+      }, speed)  
+}
 //typewriter PROJECT DETAILS PAGE
 export const typewriterProjectDetails = (heading:string, outputHeading:HTMLHeadingElement, shortDesc:string, outputShortDesc:HTMLParagraphElement) => {
     const speed = 60

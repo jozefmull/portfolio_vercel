@@ -19,7 +19,7 @@ const ProjectsList = ({projects}: Props) => {
 
   return (
     <section>
-      <ul className={styles.projectList}  ref={projCardRef}>
+      <ul id='quitFadeDown' className={styles.projectList}  ref={projCardRef}>
         {projects.map((p,id) => (
           <ProjectCard key={`project-card-${id}`} project={p}/>
         ))}

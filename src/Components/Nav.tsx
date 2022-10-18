@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import { useLocation, useNavigate } from 'react-router-dom';
 import {BsFillHexagonFill} from 'react-icons/bs'
 
+import PortfolioLink from './PortfolioLink';
+
 import { gsap } from 'gsap'
 import { DeclareNavTimeline, toggleTimeline, animateElementsOut, animOutTl } from '../Helpers/GsapHelpers'
 
@@ -57,11 +59,11 @@ const Nav = () => {
 
   return (
     <header className={styles.nav} >
-        {/* <div id="homelinkHeader"  className={styles.col}>
-                <HeaderHomeLink/>
-        </div>   */}
-        <div className={styles.col}>
-                <button id="burger_button" className={styles.special_con}
+        <div id="header_portfolio_link"  className={styles.col_portfolio_link}>
+            <PortfolioLink/>
+        </div>  
+        <div className={styles.col} id="burger_button">
+                <button className={styles.special_con}
                  onClick={() => toggleTimeline(tlnav) }
                  >
                     <span className={`${styles.bar} ${styles.arrow_top_fall}`} ref={topArrRef} ></span>
@@ -71,9 +73,9 @@ const Nav = () => {
             </div>
             <nav ref={animNavRef} className={styles.navigation} id='navigation'>
                 <div className={styles.ulNavWrapper} ref={ulWrapRef}>
-                    <span ref={firstPolygonRef} className={styles.polygon} ><BsFillHexagonFill /></span>
-                    <span ref={secondPolygonRef} className={styles.polygon} ><BsFillHexagonFill /></span>
-                    <span ref={thirdPolygonRef} className={styles.polygon} ><BsFillHexagonFill /></span>
+                    <span ref={firstPolygonRef} className={styles.polygon}><BsFillHexagonFill /></span>
+                    <span ref={secondPolygonRef} className={styles.polygon}><BsFillHexagonFill /></span>
+                    <span ref={thirdPolygonRef} className={styles.polygon}><BsFillHexagonFill /></span>
                     <ul ref={navUlRef}>
                         <li><NavLink to="/" onClick={(e) => handleLinkClickAnimation(e)} >HOME</NavLink></li>
                         <li><NavLink to="/portfolio" onClick={(e) => handleLinkClickAnimation(e)} >PORTFOLIO</NavLink></li>

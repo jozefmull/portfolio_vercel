@@ -11,16 +11,18 @@ import CircLoader from '../assets/circloader.svg'
 
 import styles from '../Css/Portfolio.module.css'
 
+const TXT = 'PORTFOLIO'
+const PARTXT = 'Check out my latest Front-End Developer portfolio projects. HTML, CSS, Animations, UI / UX, Javascript, React JS.'
+
 const Portfolio = () => {
   const {getProjects, myState} = useContext(GlobalContext)
   const {loading, projects, filteredProjects} = myState
 
   const headingRef = useRef<HTMLHeadingElement>(null)
-
-  const txt = 'PORTFOLIO'
+  const parRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
-    typewriterPortfolio(txt, headingRef.current)
+    typewriterPortfolio(TXT, headingRef.current, PARTXT, parRef.current)
     if (projects.length === 0) {
       getProjects()
     }
@@ -35,8 +37,10 @@ const Portfolio = () => {
       <main className={styles.portfolio}>
         <section className={styles.screenReaders}>
           <h1>PORTFOLIO</h1>
+          <p>Check out my latest Front-End Developer portfolio projects. HTML, CSS, Animations, UI / UX, Javascript, React JS.</p>
         </section>
           <h2 ref={headingRef} id='quitFadeUp'> </h2>
+          <p ref={parRef} className={styles.par} id='quitFadeUp'></p>
           {loading && <img style={{margin: '0 auto'}} src={CircLoader} alt="loader"/> }
           {!loading && (filteredProjects.length === 0 || projects.length > 0) && (
             <>
@@ -45,9 +49,6 @@ const Portfolio = () => {
               <Footer/>
             </>
           )}
-          {/* {!loading && (filteredProjects.length === 0 || projects.length > 0) && (<Filter projects={projects}/>)}
-          <ProjectsList projects={!loading && filteredProjects.length > 0 ? filteredProjects : projects}/>
-          <Footer/> */}
       </main>
     </>
   )

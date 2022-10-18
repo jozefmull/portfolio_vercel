@@ -7,6 +7,8 @@ import ImageSlider from '../Components/ImageSlider'
 import Meta from '../Components/Meta'
 import Footer from '../Components/Footer'
 
+import CircLoader from '../assets/circloader.svg'
+
 import styles from '../Css/ProjectDetails.module.css'
 
 const ProjectDetails = () => {
@@ -37,35 +39,40 @@ const ProjectDetails = () => {
     <>
         <Meta title={`${name} - Web Developer - Javascript, React JS, UI/UX - Jozef Müller`}/>
         <main className={styles.projectDetailsContainer}>
+          {loading && <img style={{margin: '0 auto'}} src={CircLoader} alt="loader"/> }
             {!loading && Object.keys(projectDetails).length !== 0 && (
                 <section>
                     <div className={styles.single_item_head_wrap}>
                         <h1 id="quitFadeUp" className={styles.single_item_heading} ref={headingRef}>{name}</h1>
                     </div>
                     <p id="quitFadeUp" ref={shortDescRef} className={styles.shortDesc}>{shortDesc}</p>
-                    <section  id="quitFadeUp" className={styles.single_item_buttons} >
-                        <button className={styles.single_item_button}>
+                    <section  className={styles.single_item_buttons} >
+                        <button  id="quitFadeUp" className={styles.single_item_button}>
                             <a href={url} target='_blank' rel='noreferrer'>VISIT THE WEBSITE</a>
                         </button>
-                        {codeUrl === "-" ? ( <button className={styles.single_item_button_disabled} disabled>
+                        {codeUrl === "-" ? ( <button  id="quitFadeUp" className={styles.single_item_button_disabled} disabled>
                             CODE
                         </button>): (
-                            <button className={styles.single_item_button}>
+                            <button  id="quitFadeUp" className={styles.single_item_button}>
                                 <a href={codeUrl} target='_blank' rel='noreferrer'>CODE</a>
                             </button>
                         )} 
                     </section>
-                    <ImageSlider imgs={imgs}/>
-                    <section id="quitFadeDown" className={styles.singleContent}>
-                        <h2  className={styles.single_item_about} >About</h2>
-                        <p dangerouslySetInnerHTML={{__html: description}}></p>
-                        <h2 className={styles.single_item_tech}>Technologies</h2>
-                        <h3>Technologies i was using while working on this project</h3>
-                        <ul className={styles.tech_list_items}>
-                            {technologies.map((t, id) => {
-                                return <li id="quitFadeLeft" key={id}>{t}</li>;
-                            })}
-                        </ul>        
+                    <div id='quitFadeDown'>
+                        <ImageSlider imgs={imgs}/>
+                    </div>
+                    <section  className={styles.singleContent}>
+                        <div id="quitFadeDown">
+                            <h2  className={styles.single_item_about} >About</h2>
+                            <p dangerouslySetInnerHTML={{__html: description}}></p>
+                            <h2 className={styles.single_item_tech}>Technologies</h2>
+                            <h3>Technologies i was using while working on this project</h3>
+                            <ul className={styles.tech_list_items}>
+                                {technologies.map((t, id) => {
+                                    return <li id="quitFadeLeft" key={id}>{t}</li>;
+                                })}
+                            </ul> 
+                        </div>        
                     </section>
                 </section>
             )}

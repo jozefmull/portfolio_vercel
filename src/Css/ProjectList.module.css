@@ -99,6 +99,7 @@
     transition: all 325ms ease-in-out;
     height: 100%;
     width: 100%;
+    opacity: 0;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -139,6 +140,7 @@
   }
   .item_card:hover .back{
     top: 0;
+    opacity: 1;
   }
   .item_card:hover .back ul li{
     animation-name: animateIn;

@@ -16,7 +16,6 @@
     display: none;
 }
 .portfolio h2{
-    padding-right: 5px;
     font-size: 2rem;
     color: #cacaca;
     padding: 0 15px;
@@ -24,6 +23,18 @@
 .portfolio h2::after{
   content: '_';
   animation: blink-caret 0.65s step-end infinite;
+  display: var(--portfoliotHeadingAfterDisplay);
+  font-weight: 600;
+}
+.portfolio .par{
+  margin: 0;
+  padding:0 15px ;
+}
+.portfolio .par::after{
+  font-weight: 600;
+  content: '_';
+  animation: blink-caret 0.65s step-end infinite;
+  display: var(--portfoliotParAfterDisplay);
 }
 @keyframes blink-caret {
     from,
@@ -176,7 +187,8 @@
   }
   .portfolio h2,
   .portfolio p,
-  .filter ul{
+  .filter ul,
+  .portfolio .par{
     padding: 0 ;
   }
 }

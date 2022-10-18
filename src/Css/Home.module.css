@@ -17,7 +17,6 @@
     align-self: flex-start;
     margin: 0;
     pointer-events: none;
-    user-select: none; 
     text-align: center;
 }
 .home h2::after{
@@ -33,12 +32,10 @@
 .home p{
     text-align: center;
     padding-right: 5px;
-    /* height: 23px; */
     display: inline-block;
     margin: 0;
     font-size: 1.1rem;
     font-weight: 300;
-    user-select: none;
 }
 .home p::after{
   content: '_';

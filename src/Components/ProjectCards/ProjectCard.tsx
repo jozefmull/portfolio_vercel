@@ -30,7 +30,7 @@ const ProjectCard = ({project}: Props) => {
   }
 
   return (
-    <li id='quitFadeDown' className={styles.item_card}>
+    <li className={styles.item_card}>
         <Link id='project-card-link' to={`/project/${projectId}`} onClick={(e) => handleLinkClickAnim(e)}>
             <CardHeader name={name} />
             <CardContent imgs={imgs} technologies={technologies} projectId={projectId} mainTech={mainTech}/>
