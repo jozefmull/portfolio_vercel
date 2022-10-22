@@ -12,14 +12,9 @@ import styles from '../Css/Portfolio.module.css'
 type Props = {
   projects: Project[]
 }
-
+// OPTIONS I DO NOT WANT TO SHOW IN MY FILTER
 const UNWANTED_OPTIONS = [
-  "DARSKYAPI",
-  "JSX",
-  "OXYGEN",
-  "PHP",
-  "AVADA-THEME",
-  "NAPOLI-THEME"
+  ""
 ]
 
 const Filter = ({projects}: Props) => {
@@ -32,10 +27,14 @@ const Filter = ({projects}: Props) => {
     gsap.to(filterRef.current, {duration:1, y:0, opacity:1,ease:Power4.easeInOut, stagger:0.2, delay:0.25})
   }, [filterRef])
 
+  // GET ALL TECHNOLOGIES ARRAYS INTO ONE
   let technologies = projects.map((item) => item.technologies)
+  // MERGE ALL ARRAYS TOGETHER AND FILTER UNWANTED OPTIONS
   let filterValues = mergeArrays(...technologies).map(i => i.toUpperCase()).filter(i => !UNWANTED_OPTIONS.includes(i))
+  // ADD ALL TO THE BEGGINING OF THIS ARRAY
   filterValues.unshift('All')
 
+  // MEMOIZE CURRENT FILTER LINK VALUES
   const filterRender = useMemo(() =>
     filterValues.map((v,i) => (
       <li key={`filter-value-${i}`} onClick={() => filterProjects(v)} className={filterValue === v ? styles.activeFilter : 'inactive'}>

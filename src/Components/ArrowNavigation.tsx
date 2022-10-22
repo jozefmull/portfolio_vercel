@@ -1,6 +1,7 @@
-import { Children, useRef }  from 'react'
+import { useRef }  from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { myRoutes } from '../assets/Routes'
+import { getPreviousPage, getNextPage } from '../Helpers/Helpers'
 import { animateElementsOut, animOutTl } from '../Helpers/GsapHelpers'
 import { gsap, Power4 } from 'gsap'
 
@@ -15,15 +16,16 @@ const ArrowNavigation = () => {
   let arrowLeftSpan = useRef<HTMLSpanElement>(null)
   let arrowRightSpan = useRef<HTMLSpanElement>(null)
 
-  const getPreviousPage = (id:number) => {
-    return myRoutes.find((x, i) => i === id) 
-  }
-  const getNextPage = (id:number) => {
-    return myRoutes.find((x, i) => i === id)  
-  }
+  /**
+   * FIND CURRENT / PREVIOUS / NEXT ROUTE INDEX 
+   * @returns 
+   */
   const findRouteIndex = () => {  
+    // find index of current route
     const index = myRoutes.map(obj => obj.path).indexOf(location.pathname)
+    // get previous page
     const prevPage = getPreviousPage(index - 1)
+    // get next page
     const nextPage = getNextPage(index + 1)
     
     return {prevPage, index, nextPage}
@@ -31,24 +33,29 @@ const ArrowNavigation = () => {
 
   const currentRoutes = findRouteIndex()
 
+  /**
+   * ANIMATE ARROWS ON CLICK AND REDIRECT TO GIVEN URL
+   * @param e 
+   */
   const arrowClickAnim = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     const target = e.target as HTMLAnchorElement;
     
     animateElementsOut()
-    gsap.to(arrowLeft.current, {duration:0.2, left:'-100'})
-    gsap.to(arrowRight.current, {duration:0.2, right:'-100'})
+    gsap.to(arrowLeft.current, {duration:0.2, left:'-100', ease:Power4.easeInOut})
+    gsap.to(arrowRight.current, {duration:0.2, right:'-100', ease:Power4.easeInOut})
 
     setTimeout(() => {
       navigate(`/${target.href.split('/').pop()}`)
-      gsap.to(arrowLeft.current, {duration:0.2, left:0})
-      gsap.to(arrowRight.current, {duration:0.2, right:0})
+      gsap.to(arrowLeft.current, {duration:0.2, left:0, ease:Power4.easeInOut})
+      gsap.to(arrowRight.current, {duration:0.2, right:0, ease:Power4.easeInOut})
 
     }, (animOutTl.duration() * 1000) + 300)
   }
   
   return (
     <>
+      {/* IF WE HAVE PREVIOUS PAGE SHOW PREVIOUS ARROW */}
       {currentRoutes.prevPage !== undefined && ( 
         <NavLink to={currentRoutes.prevPage.path}
           id="arrow_left"
@@ -60,6 +67,7 @@ const ArrowNavigation = () => {
           <em ></em>                    
         </NavLink>
       )}
+      {/* IF WE HAVE NEXT PAGE SHOW PREVIOUS ARROW */}
       {currentRoutes.nextPage !== undefined && ( 
         <NavLink to={currentRoutes.nextPage.path}
           id="arrow_right"

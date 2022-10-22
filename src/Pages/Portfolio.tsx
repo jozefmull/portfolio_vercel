@@ -1,4 +1,4 @@
-import {useEffect, useRef, useContext} from 'react'
+import { useEffect, useRef, useContext } from 'react'
 import { GlobalContext } from '../Context/GlobalState'
 import { typewriterPortfolio } from '../Helpers/Helpers'
 
@@ -15,12 +15,13 @@ const TXT = 'PORTFOLIO'
 const PARTXT = 'Check out my latest Front-End Developer portfolio projects. HTML, CSS, Animations, UI / UX, Javascript, React JS.'
 
 const Portfolio = () => {
-  const {getProjects, myState} = useContext(GlobalContext)
-  const {loading, projects, filteredProjects} = myState
+  const { getProjects, myState } = useContext(GlobalContext)
+  const { loading, projects, filteredProjects } = myState
 
   const headingRef = useRef<HTMLHeadingElement>(null)
   const parRef = useRef<HTMLParagraphElement>(null)
 
+  // TYPEWRITER EFFECT ON INITIAL RENDER / GET PROJECTS IF THERE ARE NONE
   useEffect(() => {
     typewriterPortfolio(TXT, headingRef.current, PARTXT, parRef.current)
     if (projects.length === 0) {
@@ -35,10 +36,6 @@ const Portfolio = () => {
       title={'React Developer Portfolio - Javascript and UI/UX - Web and Mobile'}
       />
       <main className={styles.portfolio}>
-        <section className={styles.screenReaders}>
-          <h1>PORTFOLIO</h1>
-          <p>Check out my latest Front-End Developer portfolio projects. HTML, CSS, Animations, UI / UX, Javascript, React JS.</p>
-        </section>
           <h2 ref={headingRef} id='quitFadeUp'> </h2>
           <p ref={parRef} className={styles.par} id='quitFadeUp'></p>
           {loading && <img style={{margin: '0 auto'}} src={CircLoader} alt="loader"/> }

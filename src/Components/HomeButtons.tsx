@@ -1,7 +1,6 @@
 import React, {useRef, useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { animateElementsOut, animOutTl } from '../Helpers/GsapHelpers'
-import {gsap, Power4} from 'gsap'
+import { animateElementsOut, animOutTl, animateHomeButtons} from '../Helpers/GsapHelpers'
 
 import styles from '../Css/Home.module.css'
 
@@ -9,11 +8,16 @@ const HomeButtons = () => {
   const navigate = useNavigate()
   const refBtnWrap = useRef<HTMLDivElement>(null)
 
+  // ANIMATE BTNS IN ON INITIAL RENDER
   useEffect(() => {
     // @ts-ignore: Object is possibly 'null'
-    gsap.to([...refBtnWrap.current.children], {duration:0.3,  y:0, scale:1, opacity:1, ease:Power4.easeInOut, stagger:0.1, delay:0.5})
+    animateHomeButtons([...refBtnWrap.current.children])
   }, [])
 
+  /**
+   * HANDLE ANIMATION ON CLICK OF A BUTTON THEN REDIRECT TO CLICKED LINK URL
+   * @param e 
+   */
   const handleBtnLinkClick = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     const target = e.target as HTMLAnchorElement;

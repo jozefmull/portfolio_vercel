@@ -1,31 +1,28 @@
 import {useEffect, useRef} from 'react'
-
 import { typewriterContact } from '../Helpers/Helpers'
-import ContactForm from '../Components/ContactForm'
 
-import styles from '../Css/Contact.module.css'
+import ContactForm from '../Components/ContactForm'
 import Meta from '../Components/Meta'
 
+import styles from '../Css/Contact.module.css'
+
+const HEADING_TXT = 'CONTACT'
+const PARAGRAPH_TXT = 'If you want to get in touch and talk please fill up this form or contact me via email at: '
+
 const Contact = () => {
-  let textRef = useRef<HTMLParagraphElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
   const refHeading = useRef<HTMLHeadingElement>(null)
 
-  const heading = 'CONTACT'
-  const paragraph = 'If you want to get in touch and talk please fill up this form or contact me via email at: '
 
+  // TYPEWRITER EFFECT ON INITIAL RENDER
   useEffect(() => {
-    typewriterContact(heading, refHeading.current, paragraph, textRef.current)
+    typewriterContact(HEADING_TXT, refHeading.current, PARAGRAPH_TXT, textRef.current)
   }, [refHeading, textRef])
   
   return (
     <>
     <Meta title={'Contact - Jozef Müller - Front-End Web Developer, React JS, Javascript, UI/UX'}/>
       <main className={styles.contact}>
-          <section className={styles.screenReaders}>
-            <h1>CONTACT</h1>
-            <p>If you want to get in touch and talk please fill up this form or contact me via email at:</p>
-            <address><a href='mailto:dodkymull@gmail.com'>dodkymull@gmail.com</a></address>
-          </section>
           <section>
             <h2 ref={refHeading} id='quitFadeRight' className={styles.contact_heading}> </h2>
             <p ref={textRef} id='quitFadeRight' className={styles.text}></p>

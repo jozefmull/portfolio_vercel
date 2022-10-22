@@ -9,10 +9,10 @@ type Props = {
     mainTech: string
 }
 
-const CardContent = ({imgs, technologies, projectId, mainTech}: Props) => {
+const CardContent = ({imgs, technologies, mainTech, projectId}: Props) => {
 
   return (
-    <div className={styles.main_info}>
+    <div className={styles.main_info} >
         <img src={imgs[0]} alt="project" width={'100%'} height={'100%'} className={styles.front}/>
         <div className={styles.back} 
             style={{
@@ -24,12 +24,12 @@ const CardContent = ({imgs, technologies, projectId, mainTech}: Props) => {
                 backgroundBlendMode: "multiply",
             }}
             >
-            <ul>
+            <ul >
                 {technologies.map((t:string, id:number) => (
-                    <li key={`${t}-${id}`}>{t}</li>
+                    <li key={`${t}-${id}`} style={{animationDelay: id + 3 + '10ms'}}>{t}</li>
                     )
                 )}
-                <li id='project-link-more'>more</li>
+                <li id='project-link-more' style={{animationDelay: 8 + '10ms'}}>more</li>
             </ul>
         </div>
         <Ribbon title={mainTech} />

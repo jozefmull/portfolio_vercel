@@ -7,6 +7,7 @@ import styles from '../Css/Home.module.css'
 const SocialLinks = () => {
     let socialLinksRef = useRef<HTMLUListElement>(null);
 
+    //ANIMATE LINK IN ON INITIAL RENDER
     useEffect(() => {
         // @ts-ignore: Object is possibly 'null'
         SocialLinkAnim([...socialLinksRef.current.children])

@@ -4,12 +4,14 @@ import { animateElementsOut, animOutTl } from '../Helpers/GsapHelpers'
 
 import styles from '../Css/Nav.module.css'
 
-type Props = {}
-
-const PortfolioLink = (props: Props) => {
+const PortfolioLink = () => {
   let location = useLocation()
   let navigate = useNavigate()
 
+  /**
+   * ANIMATE ELEMENT OUT AND REDIRECT TO CLICKED LINK URL
+   * @param e 
+   */
   const clickHandle = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     
@@ -22,19 +24,20 @@ const PortfolioLink = (props: Props) => {
 
   return (
     <>
-    {!location.pathname.includes('project') ? null : (
-        <Link to='/portfolio' className={styles.header_portfolio_link} onClick={(e) => clickHandle(e)}>
-            <i style={{transform: 'translateY(-11px) translateX(-11px)'}}></i>
-            <i style={{transform: 'translateY(-11px) translateX(11px)'}}></i>
-            <i style={{transform: 'translateY(11px) translateX(-11px)'}}></i>
-            <i style={{transform: 'translateY(0px) translateX(-11px)'}}></i>
-            <i style={{transform: 'translateY(-11px) translateX(0px)'}}></i>
-            <i style={{transform: 'translateY(11px) translateX(0px)'}}></i>
-            <i style={{transform: 'translateY(0px) translateX(11px)'}}></i>
-            <i style={{transform: 'translateY(0px) translateX(0px)'}}> </i>
-            <i style={{transform: 'translateY(11px) translateX(11px)'}}></i>
-        </Link>
-    )}
+      {/* DISPALY THIS ONLY ON PROJECT DETAILS PAGE */}
+      {!location.pathname.includes('project') ? null : (
+          <Link to='/portfolio' className={styles.header_portfolio_link} onClick={(e) => clickHandle(e)}>
+              <i style={{transform: 'translateY(-11px) translateX(-11px)'}}></i>
+              <i style={{transform: 'translateY(-11px) translateX(11px)'}}></i>
+              <i style={{transform: 'translateY(11px) translateX(-11px)'}}></i>
+              <i style={{transform: 'translateY(0px) translateX(-11px)'}}></i>
+              <i style={{transform: 'translateY(-11px) translateX(0px)'}}></i>
+              <i style={{transform: 'translateY(11px) translateX(0px)'}}></i>
+              <i style={{transform: 'translateY(0px) translateX(11px)'}}></i>
+              <i style={{transform: 'translateY(0px) translateX(0px)'}}> </i>
+              <i style={{transform: 'translateY(11px) translateX(11px)'}}></i>
+          </Link>
+      )}
     </>
   )
 }

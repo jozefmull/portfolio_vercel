@@ -39,7 +39,9 @@ const ProjectDetails = () => {
     <>
         <Meta title={`${name} - Web Developer - Javascript, React JS, UI/UX - Jozef Müller`}/>
         <main className={styles.projectDetailsContainer}>
-          {loading && <img style={{margin: '0 auto'}} src={CircLoader} alt="loader"/> }
+            {/* IF WE ARE LOADING ITEMS SHOW LOADER */}
+            {loading && <img style={{margin: '0 auto'}} src={CircLoader} alt="loader"/> }
+            {/* IF WE ARE NOT LOADING AND PROJECT DETAILS ARENT EMPTY SHOW CONTENT */}
             {!loading && Object.keys(projectDetails).length !== 0 && (
                 <section>
                     <div className={styles.single_item_head_wrap}>

@@ -33,15 +33,22 @@ const Nav = () => {
         DeclareNavTimeline(tlnav, animNavRef.current, ulWrapRef.current, [...navUlRef.current.children],topArrRef.current, midArrRef.current,botArrRef.current, firstPolygonRef.current, secondPolygonRef.current, thirdPolygonRef.current)
     }, [tlnav])
 
+    /**
+     * ANIMATE ELEMENTS OUT AND REDIRECT TO ANOTHER PAGE
+     * @param e 
+     */
     const handleLinkClickAnimation = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
         e.preventDefault()
 
         const target = e.target as HTMLAnchorElement;
 
+        // if we have target.href and if timeline isnt active continue
         if (target.href && !tlnav.isActive()) {
+            // if pathname is the same as our current location just animate elements out and do not redirect
             if(`/${target.href.split('/').pop()}` ===  location.pathname){
                 toggleTimeline(tlnav)       
             }          
+            // else animate them out as well as redirect to another page
             else {
                 setTimeout(() => {
                     animateElementsOut()

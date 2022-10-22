@@ -1,4 +1,14 @@
-// typewriter HOMEPAGE
+/**
+ * TYPEWRITER EFFECT HOMEPAGE
+ * @param heading 
+ * @param outputHeading 
+ * @param par1 
+ * @param outputPar1 
+ * @param par2 
+ * @param outputPar2 
+ * @param par3 
+ * @param outputPar3 
+ */
 export const typewriterDesktop = (heading:string, outputHeading:HTMLElement, par1:string, outputPar1:HTMLElement, par2:string, outputPar2:HTMLElement, par3:string, outputPar3:HTMLElement) => {
     const speed = 30
     let i = 0
@@ -25,6 +35,16 @@ export const typewriterDesktop = (heading:string, outputHeading:HTMLElement, par
         }
       }, speed)  
 }
+/**
+ * TYPEWRITER EFFECT HOMEPAGE PARAGRAPH 1
+ * @param par1 
+ * @param outputPar1 
+ * @param par2 
+ * @param outputPar2 
+ * @param par3 
+ * @param outputPar3 
+ * @param speed 
+ */
 const par1typewriter = (par1:string, outputPar1:HTMLElement, par2:string, outputPar2:HTMLElement,par3:string, outputPar3:HTMLElement, speed:number) => {
     let i = 0,
     j = 0,
@@ -52,6 +72,14 @@ const par1typewriter = (par1:string, outputPar1:HTMLElement, par2:string, output
         }
       },speed) 
 }
+/**
+ * TYPEWRITER EFFECT HOMEPAGE PARAGRAPH 2
+ * @param par2 
+ * @param outputPar2 
+ * @param par3 
+ * @param outputPar3 
+ * @param speed 
+ */
 const par2typewriter = (par2:string, outputPar2:HTMLElement,par3:string, outputPar3:HTMLElement, speed:number) => {
     let i = 0,
         j = 0,
@@ -84,6 +112,12 @@ const par2typewriter = (par2:string, outputPar2:HTMLElement,par3:string, outputP
         }
       },speed) 
 }
+/**
+ * TYPEWRITER EFFECT HOMEPAGE PARAGRAPH 3
+ * @param par3 
+ * @param outputPar3 
+ * @param speed 
+ */
 const par3typewriter = (par3:string, outputPar3:HTMLElement, speed:number) => {
     let i = 0,
         j = 0,

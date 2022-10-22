@@ -1,4 +1,21 @@
-// get age
+import { myRoutes } from '../assets/Routes'
+/**
+ * MERGE ARRAYS INTO ONE AND RETURN ONLY UNIQUE VALUES
+ * @param arrays 
+ * @returns 
+ */
+ export const mergeArrays = (...arrays:string[][]) => {
+    let jointArray:string[] = [];
+    arrays.forEach((array) => {
+      jointArray = [...jointArray, ...array];
+    });
+    return [...new Set([...jointArray])];
+}
+/**
+ * GET AGE FROM DATE STRING
+ * @param dateString 
+ * @returns 
+ */
 export const getAge = (dateString:string) => {
     let today = new Date();
     let birthDate = new Date(dateString);
@@ -9,8 +26,29 @@ export const getAge = (dateString:string) => {
     }
     return age;
 }
-
-//typewriter CONTACT PAGE
+/**
+ * RETURN PREVIOUS PAGE IF THERE IS FROM MY ROUTES
+ * @param id 
+ * @returns 
+ */
+export const getPreviousPage = (id:number) => {
+    return myRoutes.find((x, i) => i === id) 
+}
+/**
+ * RETURN NEXT PAGE IF THERE IS FROM MY ROUTES
+ * @param id 
+ * @returns 
+ */
+export const getNextPage = (id:number) => {
+    return myRoutes.find((x, i) => i === id)  
+}
+/**
+ * TYPEWRITER EFFECT CONTACT PAGE
+ * @param heading 
+ * @param outputHeading 
+ * @param text 
+ * @param textOutput 
+ */
 export const typewriterContact = (heading:string, outputHeading:HTMLHeadingElement, text:string, textOutput:HTMLParagraphElement) => {
     const speed = 60
     let i = 0
@@ -29,6 +67,12 @@ export const typewriterContact = (heading:string, outputHeading:HTMLHeadingEleme
         }
       }, speed)  
 }
+/**
+ *  TYPEWRITER EFFECT ON PARAGRAPH CONTACT PAGE
+ * @param text 
+ * @param textOutput 
+ * @param speed 
+ */
 const typewriterText = (text:string, textOutput:HTMLParagraphElement, speed:number) => {
     let i = 0,
         j = 0,
@@ -57,8 +101,13 @@ const typewriterText = (text:string, textOutput:HTMLParagraphElement, speed:numb
         }
       },speed) 
 }
-
-//typewriter PORTFOLIO PAGE
+/**
+ *  TYPEWRITER EFFECT PORTFOLIO PAGE
+ * @param heading 
+ * @param outputHeading 
+ * @param par 
+ * @param outputPar 
+ */
 export const typewriterPortfolio = (heading:string, outputHeading:HTMLHeadingElement, par:string, outputPar:HTMLParagraphElement) => {
     const speed = 60
     let i = 0
@@ -76,6 +125,12 @@ export const typewriterPortfolio = (heading:string, outputHeading:HTMLHeadingEle
         }
       }, speed)  
 }
+/**
+ * TYPEWRITER EFFECT ON PARAGRAPH PORTFOLIO PAGE
+ * @param par 
+ * @param outputPar 
+ * @param speed 
+ */
 const typewriterPortfolioPar = (par:string, outputPar:HTMLParagraphElement, speed:number) => {
     let i = 0
 
@@ -89,7 +144,13 @@ const typewriterPortfolioPar = (par:string, outputPar:HTMLParagraphElement, spee
         }
       }, speed)  
 }
-//typewriter PROJECT DETAILS PAGE
+/**
+ * TYPEWRITER EFFECT PROJECT DETAILS PAGE
+ * @param heading 
+ * @param outputHeading 
+ * @param shortDesc 
+ * @param outputShortDesc 
+ */
 export const typewriterProjectDetails = (heading:string, outputHeading:HTMLHeadingElement, shortDesc:string, outputShortDesc:HTMLParagraphElement) => {
     const speed = 60
     let i = 0
@@ -109,6 +170,12 @@ export const typewriterProjectDetails = (heading:string, outputHeading:HTMLHeadi
         }
       }, speed)  
 }
+/**
+ * TYPEWRITER EFFECT PROJECT DETAILS PAGE PARAGRAPH
+ * @param shortDesc 
+ * @param outputShortDesc 
+ * @param speed 
+ */
 const typewriterProjDetailsPar = (shortDesc:string, outputShortDesc:HTMLParagraphElement, speed:number) => {
     let i = 0
 
@@ -123,12 +190,4 @@ const typewriterProjDetailsPar = (shortDesc:string, outputShortDesc:HTMLParagrap
       }, speed)  
 }
 
-
-export const mergeArrays = (...arrays:string[][]) => {
-    let jointArray:string[] = [];
-    arrays.forEach((array) => {
-      jointArray = [...jointArray, ...array];
-    });
-    return [...new Set([...jointArray])];
-}
 

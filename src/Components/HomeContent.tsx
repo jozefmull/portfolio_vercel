@@ -6,6 +6,11 @@ import { useNavigate } from 'react-router-dom'
 
 import styles from '../Css/Home.module.css'
 
+const heading = 'Hello, my name is Jozef Müller'
+const par1 = `I am ${getAge('1997/05/08')} years old graduate aspiring to become a `
+const par2 = `If you would like to see my work feel free to visit my ` 
+const par3 = `You can contact me via email at: `
+
 const DesktopHomeContent = () => {
     const navigate = useNavigate()
 
@@ -14,16 +19,13 @@ const DesktopHomeContent = () => {
     const refPar2 = useRef<HTMLParagraphElement>(null)
     const refPar3 = useRef<HTMLParagraphElement>(null)
 
-    const heading = 'Hello, my name is Jozef Müller'
-    const par1 = `I am ${getAge('1997/05/08')} years old graduate aspiring to become a `
-    const par2 = `If you would like to see my work feel free to visit my ` 
-    const par3 = `You can contact me via email at: `
-
+    // TYPEWRITER EFFECT ON INITIAL RENDER
     useEffect(() => {
         // @ts-ignore: Object is possibly 'null'
         typewriterDesktop(heading, refHeading.current, par1, refPar1.current, par2, refPar2.current, par3, refPar3.current)
-    }, [par1, par2, par3])
+    }, [])
 
+    // SET TIMEOUT AND ADD EVENT LISTENER TO PORTFOLIO LINK SO WE CAN ANIMATE AND REDIRECT TO CLICKED LINK URL
     useEffect(() => {
         setTimeout(() => {
             document.getElementById('homepage-portfolio-link').addEventListener('click', (e) => handleHomePortfolioLinkClick(e))
@@ -31,6 +33,10 @@ const DesktopHomeContent = () => {
         // eslint-disable-next-line
     }, [])
     
+    /**
+     * ANIMATE ELEMENTS OUT ON LINK CLICK AND REDIRECT TO CLICED LINK URL
+     * @param e 
+     */
     const handleHomePortfolioLinkClick = (e:any) => {
         e.preventDefault()
         const target = e.target as HTMLAnchorElement;
@@ -38,7 +44,7 @@ const DesktopHomeContent = () => {
         animateElementsOut()
 
         setTimeout(() => {
-        navigate(`/${target.href.split('/').pop()}`)
+            navigate(`/${target.href.split('/').pop()}`)
         }, (animOutTl.duration() * 1000) + 300)
     }
 

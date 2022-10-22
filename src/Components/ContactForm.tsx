@@ -43,6 +43,7 @@ const validate = (values: {name:string|null, email:string|null, message:string|n
 };
 
 const ContactForm = () => {
+    // Ref for email JS  
     const form = useRef<HTMLFormElement>(null);
     // Refs for gsap animations
     let inputTextRef = useRef<HTMLInputElement>(null);
@@ -50,6 +51,7 @@ const ContactForm = () => {
     let inputTextareaRef = useRef<HTMLTextAreaElement>(null);
     let buttonRef = useRef<HTMLButtonElement>(null);
 
+    //component state for notifications
     const [message, setmessage] = useState(null)
     const [type, settype] = useState(null)
     const [issubmitting, setissubmitting] = useState(false)

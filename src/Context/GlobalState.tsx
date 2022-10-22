@@ -30,45 +30,62 @@ type Props = {
 export const GlobalProvider: React.FC<Props> = ({ children }) => {
     const [myState, dispatch] = useReducer(AppReducer, INITIAL_STATE);
 
+    // PROEJCTS COLLECTION FROM FIREBASE
     const projectsCollectionRef = collection(db, 'projects')
 
-    // get all projects
+    /**
+     * GET ALL PROJECTS FROM FIREBASE 
+     * ASYNC
+     */
     const getProjects = async() => {
+        // LOADER
         dispatch({type:'GET_PROJECT_LIST_REQUEST'})
-
+        // TRY TO GET DATA FROM FIREBASE
         try {
             const data = await getDocs(projectsCollectionRef)
-
+            // IF WE HAVE DATA DISPATCH SUCCESS ACTION
             dispatch({type:'GET_PROJECT_LIST_SUCCESS', payload: data.docs.map(doc => ({...doc.data(), id: doc.id}))})
+        // IF THERE IS AN ERROR DISPATCH FAIL ACTION
         } catch (error) {
             dispatch({type:'GET_PROJECT_LIST_FAIL', payload: error})
         }  
     }
-    // get project details
+    /**
+     * GET PROJECT DETAILS
+     * @param id 
+     */
     const getProjectById = async(id:string) => {
         const projectDocRef = doc(db, 'projects', id)
-
+        // LOADER
         dispatch({type:'GET_PROJECT_DETAILS_REQUEST'})
-
+        // TRY TO GET DATA FROM FIREBASE
         try {
             const data = await getDoc(projectDocRef)
-            
+            // IF WE HAVE DATA DISPATCH SUCCESS ACTION 
             dispatch({type:'GET_PROJECT_DETAILS_SUCCESS', payload: data.data()})
+            // IF THERE IS AN ERROR DISPATCH FAIL ACTION
         } catch (error) {
             dispatch({type:'GET_PROJECT_DETAILS_FAIL', payload: error})
         }  
     }
-    // get project details
+    /**
+     * FILTER PROJECTS
+     * @param tech 
+     */
     const filterProjects = async(tech:string) => {
+        // LOADER
         dispatch({type:'FILTER_PROJECTS_REQUEST'})
+        // SET FILTER VALUE IN STATE
         dispatch({type:'SET_FILTER_VALUE', payload: tech})
-        
+        // TRY TO FILTER PROJECTS
             try {
                 const data = myState.projects.filter(i => i.technologies.includes(tech))
-                dispatch({type:'FILTER_PROJECTS_SUCCESS', payload: data})
+                // IF SUCCESFULL DISPATCH SUCCESS ACTION
+                dispatch({type:'FILTER_PROJECTS_SUCCESS', payload: data})   
+            // IF ERROR DISPATCH ERROR ACTION
             } catch (error) {
                 dispatch({type:'FILTER_PROJECTS_FAIL', payload: error})
-            }  
+            }   
     }
 
     return (<GlobalContext.Provider value={{

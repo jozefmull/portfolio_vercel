@@ -13,7 +13,6 @@ type Props = {
 const ImageSlider = ({imgs}: Props) => {
   return (
     <>
-      {/* <div></div> */}
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation

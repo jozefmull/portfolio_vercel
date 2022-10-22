@@ -1,17 +1,15 @@
 import {useRef, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-
-import {gsap, Power4} from 'gsap'
+import { animateFooter } from '../Helpers/GsapHelpers'
 
 import styles from '../Css/Nav.module.css'
 
-type Props = {}
-
-const Footer = (props: Props) => {
+const Footer = () => {
     const footerRef = useRef<HTMLElement>(null)
 
+    // ANIMATE FOOTER ON INITIAL RENDER
     useEffect(() => {
-        gsap.to(footerRef.current, {duration:1, y:0, opacity:1,ease:Power4.easeInOut, stagger:0.2, delay:0.75})
+      animateFooter(footerRef.current)
     }, [])
     
   return (

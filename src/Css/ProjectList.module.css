@@ -13,7 +13,6 @@
 }
 /* SINGLE PROJECT CARD */
 .item_card {
-    /* min-width: 400px; */
     padding: 15px;
     text-align: center;
     width: calc(50% - 30px);
@@ -138,13 +137,15 @@
   .back > ul > li:last-child:active {
     pointer-events: none;
   }
-  .item_card:hover .back{
+  .item_card:hover .back,
+  .item_card:focus .back,
+  .item_card > a:focus .back{
     top: 0;
     opacity: 1;
   }
-  .item_card:hover .back ul li{
+  .item_card:hover .back ul li,
+  .item_card > a:focus .back ul li{
     animation-name: animateIn;
-    animation-delay:425ms;
     animation-fill-mode: both;
     animation-duration: 0.285s;
     animation-timing-function: cubic-bezier(0.5, 1.2, 0.5, 1.2);
