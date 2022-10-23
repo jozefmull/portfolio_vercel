@@ -38,7 +38,7 @@ const Portfolio = () => {
       <main className={styles.portfolio}>
           <h2 ref={headingRef} id='quitFadeUp'> </h2>
           <p ref={parRef} className={styles.par} id='quitFadeUp'></p>
-          {loading && <img style={{margin: '0 auto'}} src={CircLoader} alt="loader"/> }
+          {loading && <img style={{margin: '25px auto 0 auto'}} src={CircLoader} alt="loader"/> }
           {!loading && (filteredProjects.length === 0 || projects.length > 0) && (
             <>
               <Filter projects={projects}/>

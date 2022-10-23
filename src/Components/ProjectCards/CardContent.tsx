@@ -1,35 +1,42 @@
 import Ribbon from './Ribbon';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import styles from '../../Css/ProjectList.module.css'
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 type Props = {
-    imgs: string[],
+    mainImg: string,
+    backImg: string,
     technologies: string[],
     projectId: string,
     mainTech: string
 }
 
-const CardContent = ({imgs, technologies, mainTech, projectId}: Props) => {
+const CardContent = ({mainImg, backImg, technologies, mainTech, projectId}: Props) => {
 
   return (
     <div className={styles.main_info} >
-        <img src={imgs[0]} alt="project" width={'100%'} height={'100%'} className={styles.front}/>
-        <div className={styles.back} 
-            style={{
-                backgroundImage: `url("${imgs[1]}")`,
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundColor: "rgba(0, 0, 0,0.5)",
-                backgroundBlendMode: "multiply",
-            }}
-            >
+        <LazyLoadImage
+            alt='project-image'
+            width={'100%'} 
+            src={mainImg} 
+            height={'100%'}
+            effect="blur" 
+            placeholderSrc='circLoader.svg'
+            />
+        <div className={styles.back}>
+            <LazyLoadImage
+                alt='project-image'
+                width={'100%'} 
+                src={backImg} 
+                height={'100%'}
+                effect="blur" />
             <ul >
                 {technologies.map((t:string, id:number) => (
-                    <li key={`${t}-${id}`} style={{animationDelay: id + 3 + '10ms'}}>{t}</li>
+                    <li key={`${t}-${id}`} style={{animationDelay: id + 1 + '00ms'}}>{t}</li>
                     )
                 )}
-                <li id='project-link-more' style={{animationDelay: 8 + '10ms'}}>more</li>
+                <li id='project-link-more' style={{animationDelay: 8 + '00ms'}}>more</li>
             </ul>
         </div>
         <Ribbon title={mainTech} />

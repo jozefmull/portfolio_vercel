@@ -2,7 +2,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from '../../Css/ProjectList.module.css'
 import { animateElementsOut, animOutTl } from '../../Helpers/GsapHelpers';
 
-
 import CardHeader from './CardHeader'
 import CardContent from './CardContent';
 
@@ -33,7 +32,7 @@ const ProjectCard = ({project}: Props) => {
     <li className={styles.item_card}>
         <Link id='project-card-link' to={`/project/${projectId}`} onClick={(e) => handleLinkClickAnim(e)}>
             <CardHeader name={name} />
-            <CardContent imgs={imgs} technologies={technologies} projectId={projectId} mainTech={mainTech}/>
+            <CardContent mainImg={imgs[0]} backImg={imgs[1]} technologies={technologies} projectId={projectId} mainTech={mainTech}/>
         </Link>
     </li>
   )

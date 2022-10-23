@@ -92,16 +92,28 @@
     max-height: 218px;
     line-height: 0;
   }
+  .main_info > span{
+    background-size: 25% 25% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+  }
   .main_info .back{
     position: absolute;
     top: -100%;
-    transition: all 325ms ease-in-out;
+    transition: all 250ms ease-in-out;
     height: 100%;
     width: 100%;
     opacity: 0;
     display: flex;
     align-items: flex-start;
     justify-content: center;
+  }
+  .main_info .back  > span{
+    position: absolute;
+  }
+  .main_info .back  > span > img{
+    -webkit-filter: blur(2px) grayscale(30%);
+    filter: blur(2px) grayscale(30%);
   }
   .main_info .back ul{
     list-style: none;
@@ -122,7 +134,9 @@
     border-radius: 3px;
     font-weight: 500;
     line-height: 0;
-    box-shadow: 3px 4px 5px 0px rgb(0 0 0 / 45%);
+    box-shadow: 4px 4px 2px 0px rgb(0 0 0 / 55%);
+    transform-origin: top;
+    transform-style: flat;
 
   }
   .back > ul > li:last-child{
@@ -147,8 +161,8 @@
   .item_card > a:focus .back ul li{
     animation-name: animateIn;
     animation-fill-mode: both;
-    animation-duration: 0.285s;
-    animation-timing-function: cubic-bezier(0.5, 1.2, 0.5, 1.2);
+    animation-duration: 325ms;
+    animation-timing-function: ease-in-out;
   }
   .ribbon {
     position: absolute;
@@ -178,13 +192,20 @@
   @keyframes animateIn {
     0% {
       opacity: 0;
-      transform: scale(0.8) translateY(-25px);
+      transform: scaleY(0) scaleX(0) translateY(-10px);
     }
-    50% {
-      transform: scale(1) translateY(5px);
+    25%{
+      transform: scaleY(0.15) scaleX(0.75);
+    }
+    50%{
+      transform: scaleY(0.75) scaleX(1.05) translateY(0px);
+    }
+    75%{
+      transform:  scaleX(1);
     }
     100% {
       opacity: 1;
+      transform: scaleY(1) scaleX(1) translateY(0);
     }
   }
 /* END OF SINGLE PROJECT CARD */
