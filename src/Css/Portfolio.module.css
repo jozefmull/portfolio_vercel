@@ -146,6 +146,7 @@
   top: 0;
   position: absolute;
   transform: translateX(-100%);
+  pointer-events: all;
 }
 
 .filterAnim > em:last-child {
@@ -155,6 +156,7 @@
   bottom: 0;
   position: absolute;
   transform: translateX(100%);
+  pointer-events: all;
 }
 
 .filterTextWrap {

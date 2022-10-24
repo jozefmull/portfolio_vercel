@@ -137,6 +137,8 @@ export const animateArrowsIn = () => {
     gsap.to('#arrow_right', {duration:1, right:'0', ease:Power4.easeInOut, delay:2})
     gsap.to('#arrow_left', {duration:1, left:0, ease:Power4.easeInOut, delay:2})
 }
+let tlfilter = gsap.timeline({paused: true, reversed: true})
+
 
 /**
  * FILTER ANIMATION
@@ -145,7 +147,7 @@ export const animateArrowsIn = () => {
  * @param text 
  */
 export const filterAnim = (upperRow:HTMLElement,downRow:HTMLElement, text:HTMLSpanElement) => {
-    let tlfilter = gsap.timeline({paused: true, reversed: true})
+    tlfilter.clear()
 
     tlfilter.to(upperRow, {duration:0.25, x: 0, ease:Power4.easeInOut}, 'start')
         .to(downRow, {duration:0.25, x: 0, ease:Power4.easeInOut}, 'start')
@@ -153,6 +155,6 @@ export const filterAnim = (upperRow:HTMLElement,downRow:HTMLElement, text:HTMLSp
         .to(text, {duration:0.5 , top: '-40',  ease:Power4.easeInOut, delay:0.5, stagger:0.2})
         .to(upperRow, {duration:0.5, x: '-100%' , ease:Power4.easeInOut})
         .to(downRow, {duration:0.5, x: '100%' , ease:Power4.easeInOut}, '-=0.5')
-
-    toggleTimeline(tlfilter)
+    
+        tlfilter.play()
 }
