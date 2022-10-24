@@ -26,7 +26,7 @@ const PortfolioLink = () => {
     <>
       {/* DISPALY THIS ONLY ON PROJECT DETAILS PAGE */}
       {!location.pathname.includes('project') ? null : (
-          <Link to='/portfolio' className={styles.header_portfolio_link} onClick={(e) => clickHandle(e)}>
+          <Link to='/portfolio' className={styles.header_portfolio_link} onClick={(e) => clickHandle(e)} id='quitFadeLeft'>
               <i style={{transform: 'translateY(-11px) translateX(-11px)'}}></i>
               <i style={{transform: 'translateY(-11px) translateX(11px)'}}></i>
               <i style={{transform: 'translateY(11px) translateX(-11px)'}}></i>

@@ -1,4 +1,4 @@
-import { useRef }  from 'react'
+import { useRef, useEffect }  from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { myRoutes } from '../assets/Routes'
 import { getPreviousPage, getNextPage } from '../Helpers/Helpers'
@@ -16,6 +16,11 @@ const ArrowNavigation = () => {
   let arrowLeftSpan = useRef<HTMLSpanElement>(null)
   let arrowRightSpan = useRef<HTMLSpanElement>(null)
 
+  useEffect(() => {
+    gsap.to('#arrow_right', {duration:0.2, right:0, ease:Power4.easeInOut, delay:2})
+    gsap.to('#arrow_left', {duration:0.2, left:0, ease:Power4.easeInOut, delay:2})
+  }, [])
+  
   /**
    * FIND CURRENT / PREVIOUS / NEXT ROUTE INDEX 
    * @returns 
@@ -42,17 +47,12 @@ const ArrowNavigation = () => {
     const target = e.target as HTMLAnchorElement;
     
     animateElementsOut()
-    gsap.to(arrowLeft.current, {duration:0.2, left:'-100', ease:Power4.easeInOut})
-    gsap.to(arrowRight.current, {duration:0.2, right:'-100', ease:Power4.easeInOut})
-
+    
     setTimeout(() => {
       navigate(`/${target.href.split('/').pop()}`)
-      gsap.to(arrowLeft.current, {duration:0.2, left:0, ease:Power4.easeInOut})
-      gsap.to(arrowRight.current, {duration:0.2, right:0, ease:Power4.easeInOut})
-
-    }, (animOutTl.duration() * 1000) + 300)
+    }, (animOutTl.duration() * 1000))
   }
-  
+
   return (
     <>
       {/* IF WE HAVE PREVIOUS PAGE SHOW PREVIOUS ARROW */}
@@ -64,7 +64,7 @@ const ArrowNavigation = () => {
           onClick={(e) => arrowClickAnim(e)}
           >
           <span ref={arrowLeftSpan}>{currentRoutes.prevPage.title}</span>
-          <em ></em>                    
+          <em></em>
         </NavLink>
       )}
       {/* IF WE HAVE NEXT PAGE SHOW PREVIOUS ARROW */}

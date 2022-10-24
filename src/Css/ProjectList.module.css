@@ -9,7 +9,7 @@
     list-style: none;
     padding: 0px;
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(100px);
 }
 /* SINGLE PROJECT CARD */
 .item_card {
@@ -135,9 +135,6 @@
     font-weight: 500;
     line-height: 0;
     box-shadow: 4px 4px 2px 0px rgb(0 0 0 / 55%);
-    transform-origin: top;
-    transform-style: flat;
-
   }
   .back > ul > li:last-child{
     pointer-events: all;
@@ -163,6 +160,7 @@
     animation-fill-mode: both;
     animation-duration: 325ms;
     animation-timing-function: ease-in-out;
+    transform-origin: left;
   }
   .ribbon {
     position: absolute;

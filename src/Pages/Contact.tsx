@@ -1,5 +1,6 @@
 import {useEffect, useRef} from 'react'
 import { typewriterContact } from '../Helpers/Helpers'
+import { animateArrowsIn } from '../Helpers/GsapHelpers'
 
 import ContactForm from '../Components/ContactForm'
 import Meta from '../Components/Meta'
@@ -18,6 +19,11 @@ const Contact = () => {
   useEffect(() => {
     typewriterContact(HEADING_TXT, refHeading.current, PARAGRAPH_TXT, textRef.current)
   }, [refHeading, textRef])
+
+  useEffect(() => {
+    animateArrowsIn()
+  }, [])
+  
   
   return (
     <>

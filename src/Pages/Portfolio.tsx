@@ -1,6 +1,7 @@
 import { useEffect, useRef, useContext } from 'react'
 import { GlobalContext } from '../Context/GlobalState'
 import { typewriterPortfolio } from '../Helpers/Helpers'
+import { animateArrowsIn } from '../Helpers/GsapHelpers'
 
 import ProjectsList from '../Components/ProjectsList'
 import Filter from '../Components/Filter'
@@ -16,7 +17,7 @@ const PARTXT = 'Check out my latest Front-End Developer portfolio projects. HTML
 
 const Portfolio = () => {
   const { getProjects, myState } = useContext(GlobalContext)
-  const { loading, projects, filteredProjects } = myState
+  const {loading, projects, filteredProjects } = myState
 
   const headingRef = useRef<HTMLHeadingElement>(null)
   const parRef = useRef<HTMLParagraphElement>(null)
@@ -26,10 +27,12 @@ const Portfolio = () => {
     typewriterPortfolio(TXT, headingRef.current, PARTXT, parRef.current)
     if (projects.length === 0) {
       getProjects()
+    }else{
+      animateArrowsIn()
     }
     // eslint-disable-next-line
   }, [])
-  
+
   return (
     <>
     <Meta 

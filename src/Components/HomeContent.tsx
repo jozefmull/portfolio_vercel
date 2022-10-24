@@ -45,7 +45,7 @@ const DesktopHomeContent = () => {
 
         setTimeout(() => {
             navigate(`/${target.href.split('/').pop()}`)
-        }, (animOutTl.duration() * 1000) + 300)
+        }, (animOutTl.duration() * 1000))
     }
 
   return (

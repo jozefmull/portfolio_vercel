@@ -57,7 +57,7 @@ const Nav = () => {
                         navigate(`/${target.href.split('/').pop()}`)
                     }, (tlnav.duration() * 1000));
 
-                }, (animOutTl.duration() * 1000))
+                }, (animOutTl.duration() * 1000) + 150 )
 
                 toggleTimeline(tlnav)       
             }          

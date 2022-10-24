@@ -24,7 +24,7 @@ const Filter = ({projects}: Props) => {
   const filterRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    gsap.to(filterRef.current, {duration:1, y:0, opacity:1,ease:Power4.easeInOut, stagger:0.2, delay:0.25})
+    gsap.to(filterRef.current, {duration:1, y:0, opacity:1,ease:Power4.easeInOut})
   }, [filterRef])
 
   // GET ALL TECHNOLOGIES ARRAYS INTO ONE

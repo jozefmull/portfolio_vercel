@@ -49,7 +49,7 @@
 .filter{
   width: 100%;
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(100px);
 }
 .filter p{
   margin-bottom: 0;
