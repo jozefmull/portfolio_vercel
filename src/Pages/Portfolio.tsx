@@ -27,9 +27,8 @@ const Portfolio = () => {
     typewriterPortfolio(TXT, headingRef.current, PARTXT, parRef.current)
     if (projects.length === 0) {
       getProjects()
-    }else{
-      animateArrowsIn()
     }
+    animateArrowsIn()
     // eslint-disable-next-line
   }, [])
 
