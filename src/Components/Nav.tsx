@@ -51,13 +51,14 @@ const Nav = () => {
             // else animate them out as well as redirect to another page
             else {
                 setTimeout(() => {
-                    animateElementsOut()
 
                     setTimeout(() => {
                         navigate(`/${target.href.split('/').pop()}`)
                     }, (tlnav.duration() * 1000));
 
-                }, (animOutTl.duration() * 1000) + 150 )
+                    animateElementsOut()
+
+                }, (animOutTl.duration() * 1000))
 
                 toggleTimeline(tlnav)       
             }          

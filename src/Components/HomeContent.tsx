@@ -22,7 +22,7 @@ const DesktopHomeContent = () => {
     // TYPEWRITER EFFECT ON INITIAL RENDER
     useEffect(() => {
         // @ts-ignore: Object is possibly 'null'
-        typewriterDesktop(heading, refHeading.current, par1, refPar1.current, par2, refPar2.current, par3, refPar3.current)
+            typewriterDesktop(heading, refHeading.current, par1, refPar1.current, par2, refPar2.current, par3, refPar3.current)
     }, [])
 
     // SET TIMEOUT AND ADD EVENT LISTENER TO PORTFOLIO LINK SO WE CAN ANIMATE AND REDIRECT TO CLICKED LINK URL

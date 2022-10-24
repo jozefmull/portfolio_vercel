@@ -24,7 +24,7 @@ const Portfolio = () => {
 
   // TYPEWRITER EFFECT ON INITIAL RENDER / GET PROJECTS IF THERE ARE NONE
   useEffect(() => {
-    typewriterPortfolio(TXT, headingRef.current, PARTXT, parRef.current)
+      typewriterPortfolio(TXT, headingRef.current, PARTXT, parRef.current)
     if (projects.length === 0) {
       getProjects()
     }

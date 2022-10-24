@@ -33,7 +33,7 @@ const ProjectDetails = () => {
 
     useEffect(() => {
       if(heading !== undefined && shortDescTxt !== undefined && shortDescRef.current){
-        typewriterProjectDetails(heading, headingRef.current, shortDescTxt, shortDescRef.current)
+            typewriterProjectDetails(heading, headingRef.current, shortDescTxt, shortDescRef.current)
       }
     }, [heading, shortDescTxt])
     

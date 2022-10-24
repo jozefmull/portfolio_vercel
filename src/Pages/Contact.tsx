@@ -17,7 +17,7 @@ const Contact = () => {
 
   // TYPEWRITER EFFECT ON INITIAL RENDER
   useEffect(() => {
-    typewriterContact(HEADING_TXT, refHeading.current, PARAGRAPH_TXT, textRef.current)
+      typewriterContact(HEADING_TXT, refHeading.current, PARAGRAPH_TXT, textRef.current)
   }, [refHeading, textRef])
 
   useEffect(() => {
