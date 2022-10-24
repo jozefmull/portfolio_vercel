@@ -157,6 +157,29 @@
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
 }
+.arrowLeft.clicked > span{
+    opacity: 0 !important;
+    transform: translateX(-30px) !important;
+}
+.arrowLeft.clicked > em:after,
+.arrowLeft.clicked > em:before {
+    -moz-transform: rotate(90deg) !important;
+    -ms-transform: rotate(90deg) !important;
+    -webkit-transform: rotate(90deg) !important;
+    transform: rotate(90deg) !important;
+}
+.arrowRight.clicked > span{
+    opacity: 0 !important;
+    transform: translateX(30px) !important;
+}
+.arrowRight.clicked > em:after,
+.arrowRight.clicked > em:before {
+    -moz-transform: rotate(-90deg) !important;
+    -ms-transform: rotate(-90deg) !important;
+    -webkit-transform: rotate(-90deg) !important;
+    transform: rotate(-90deg) !important;
+}
+
 .arrowRight:hover > em:before {
     -webkit-transform: rotate(-30deg);
     transform: rotate(-30deg);

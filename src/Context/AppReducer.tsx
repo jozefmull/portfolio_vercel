@@ -52,25 +52,22 @@ export const AppReducer = (state:AppState, action:AppAction):AppState => {
         case 'FILTER_PROJECTS_REQUEST':
             return {
                 ...state,
-                loading: true,
             }
         case 'FILTER_PROJECTS_SUCCESS':
             return {
                 ...state,
-                loading: false,
                 filteredProjects: action.payload
             }
         case 'FILTER_PROJECTS_FAIL':
             return {
                 ...state,
-                loading: false,
                 error: action.payload
             }
         case 'SET_FILTER_VALUE':
-            return {
-                ...state,
-                filterValue: action.payload
-            }
+                return {
+                    ...state,
+                    filterValue: action.payload
+                }  
         default:
             return state;
     }

@@ -18,7 +18,7 @@ const INITIAL_STATE:AppState = {
     projects: [],
     projectDetails: {} as Project,
     filteredProjects: [],
-    filterValue: 'All'
+    filterValue: 'All',
 }
 
 export const GlobalContext = createContext({} as ContextProps)
@@ -73,19 +73,22 @@ export const GlobalProvider: React.FC<Props> = ({ children }) => {
      * @param tech 
      */
     const filterProjects = async(tech:string) => {
+        // if i am filtering current filter value then return
+        if (tech === myState.filterValue) {
+            return
+        }
         // LOADER
         dispatch({type:'FILTER_PROJECTS_REQUEST'})
         // SET FILTER VALUE IN STATE
-        dispatch({type:'SET_FILTER_VALUE', payload: tech})
-        // TRY TO FILTER PROJECTS
-            try {
-                const data = myState.projects.filter(i => i.technologies.includes(tech))
-                // IF SUCCESFULL DISPATCH SUCCESS ACTION
-                dispatch({type:'FILTER_PROJECTS_SUCCESS', payload: data})   
-            // IF ERROR DISPATCH ERROR ACTION
-            } catch (error) {
-                dispatch({type:'FILTER_PROJECTS_FAIL', payload: error})
-            }   
+        dispatch({type:'SET_FILTER_VALUE', payload: tech})    
+
+        const data = myState.projects.filter(i => i.technologies.includes(tech))
+
+        setTimeout(() => {
+            if (data) {
+                dispatch({type:'FILTER_PROJECTS_SUCCESS', payload: data})                    
+            }
+        }, 500);
     }
 
     return (<GlobalContext.Provider value={{

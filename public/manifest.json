@@ -26,5 +26,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#333333",
-  "background_color": "radial-gradient(circle, #333333 0%, #1e1e1e 100%)"
+  "background_color": "#333333"
 }

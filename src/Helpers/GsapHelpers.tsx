@@ -1,4 +1,5 @@
 import { gsap, Power4, CSSPlugin } from 'gsap'
+import styles from '../Css/Arrows.module.css'
 
 gsap.config({ nullTargetWarn: false });
 gsap.registerPlugin( CSSPlugin )
@@ -74,18 +75,39 @@ export const animOutTl = gsap.timeline({paused: true})
 export const animateElementsOut = () => {
     animOutTl.clear()
 
-    animOutTl.to('#quitFadeUp', {duration: 0.2 ,y:'-100', opacity:0, pointerEvents:'none',  stagger:0.1, ease:Power4.easeInOut}, 'start')
-             .to('#quitFadeDown', {duration: 0.2 ,y:'100', opacity:0, pointerEvents:'none',  stagger:0.1, ease:Power4.easeInOut}, 'start')
-             .to('#quitFadeLeft', {duration: 0.1 ,x:'-100', opacity:0, pointerEvents:'none',  stagger:0.1, ease:Power4.easeInOut}, 'start')
-             .to('#quitFadeRight', {duration: 0.1 ,x:'100', opacity:0, pointerEvents:'none',  stagger:0.1, ease:Power4.easeInOut}, 'start')
+    let leftArr = document.getElementById('arrow_left')
+    let rightArr = document.getElementById('arrow_right')
+
+    if (leftArr) {
+        leftArr.classList.add(styles.clicked)
+    }
+    if (rightArr) {
+        rightArr.classList.add(styles.clicked)
+    }
+    
+    //handle add classes
+    animOutTl.to('#quitFadeUp', {duration: 0.2 ,y:'-100', opacity:0, pointerEvents:'none',  stagger:0.15, ease:Power4.easeInOut}, 'start')
+             .to('#quitFadeDown', {duration: 0.2 ,y:'100', opacity:0, pointerEvents:'none',  stagger:0.15, ease:Power4.easeInOut}, 'start')
+             .to('#quitFadeLeft', {duration: 0.2 ,x:'-100', opacity:0, pointerEvents:'none',  stagger:0.15, ease:Power4.easeInOut}, 'start')
+             .to('#quitFadeRight', {duration: 0.2 ,x:'100', opacity:0, pointerEvents:'none',  stagger:0.15, ease:Power4.easeInOut}, 'start')
              .to('#load', {duration: 0.3 , scaleX: 1, transformOrigin: 'left' , ease:Power4.easeInOut})
              .to('#load', {duration: 0.3 , scaleX: 0, transformOrigin: 'right', delay:0.3, ease:Power4.easeInOut})  
-             .to('#burger_button', {duration:0.2, x:'100', opacity:0, ease:Power4.easeInOut}, 'start')
-             .to('#arrow_left', {duration:0.2, left:'-150', ease:Power4.easeInOut}, 'start')
-             .to('#arrow_right', {duration:0.2, right:'-150', ease:Power4.easeInOut}, 'start')
-             .to('#burger_button', {duration: 0.2, x: 0, opacity: 1, ease:Power4.easeInOut}, 'enter')
+             .to('#burger_button', {duration:0.25, x:'100', opacity:0, ease:Power4.easeInOut}, 'start')
+             .to('#arrow_left', {duration:0.25, left:'-150', ease:Power4.easeInOut}, 'start+=0.5')
+             .to('#arrow_right', {duration:0.25, right:'-150', ease:Power4.easeInOut}, 'start+=0.5')
+             .to('#burger_button', {duration: 0.25, x: 0, opacity: 1, ease:Power4.easeInOut}, 'enter')
 
     animOutTl.play()
+
+    setTimeout(() => {
+        // handle remove classes
+        if (leftArr) {
+            leftArr.classList.remove(styles.clicked)
+        }
+        if (rightArr) {
+            rightArr.classList.remove(styles.clicked)
+        }  
+    }, (animOutTl.duration() * 1000))
 }
 /**
  * ANIMATE HOMEPAGE BUTTONS IN
@@ -106,10 +128,31 @@ export const animateProjectList = (projListRef:HTMLUListElement) => {
  * @param footerRef 
  */
 export const animateFooter = (footerRef:HTMLElement) => {
-    gsap.to(footerRef, {duration:1, y:0, opacity:1,ease:Power4.easeInOut, stagger:0.2, delay:0.75})
+    gsap.to(footerRef, {duration:1, y:0, opacity:1,ease:Power4.easeInOut, stagger:0.2, delay:0.5})
+}
+/**
+ * ANIMATE ARROWS IN
+ */
+export const animateArrowsIn = () => {
+    gsap.to('#arrow_right', {duration:1, right:'0', ease:Power4.easeInOut, delay:2})
+    gsap.to('#arrow_left', {duration:1, left:0, ease:Power4.easeInOut, delay:2})
 }
 
-export const animateArrowsIn = () => {
-    gsap.to('#arrow_right', {duration:1, right:0, ease:Power4.easeInOut, delay:2})
-    gsap.to('#arrow_left', {duration:1, left:0, ease:Power4.easeInOut, delay:2})
+/**
+ * FILTER ANIMATION
+ * @param upperRow 
+ * @param downRow 
+ * @param text 
+ */
+export const filterAnim = (upperRow:HTMLElement,downRow:HTMLElement, text:HTMLSpanElement) => {
+    let tlfilter = gsap.timeline({paused: true, reversed: true})
+
+    tlfilter.to(upperRow, {duration:0.25, x: 0, ease:Power4.easeInOut}, 'start')
+        .to(downRow, {duration:0.25, x: 0, ease:Power4.easeInOut}, 'start')
+        .to(text, {duration:0.25 , top: 0, ease:Power4.easeInOut, stagger:0.2})
+        .to(text, {duration:0.5 , top: '-40',  ease:Power4.easeInOut, delay:0.5, stagger:0.2})
+        .to(upperRow, {duration:0.5, x: '-100%' , ease:Power4.easeInOut})
+        .to(downRow, {duration:0.5, x: '100%' , ease:Power4.easeInOut}, '-=0.5')
+
+    toggleTimeline(tlfilter)
 }

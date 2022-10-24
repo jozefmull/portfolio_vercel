@@ -6,7 +6,6 @@
     width: 100%;
     margin: 0 auto;
     padding-bottom: 50px;
-    min-height: calc(100% - 150px);
   }
   .projectDetailsContainer .single_item_heading{
     text-transform: uppercase;

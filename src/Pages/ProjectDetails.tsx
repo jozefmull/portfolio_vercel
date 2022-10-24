@@ -16,6 +16,7 @@ const ProjectDetails = () => {
 
     let headingRef = useRef<HTMLHeadingElement>(null)
     let shortDescRef = useRef<HTMLParagraphElement>(null)
+    let mainSectionRef = useRef<HTMLElement>(null)
     
     const {getProjectById, myState} = useContext(GlobalContext)
     const {loading, projectDetails} = myState
@@ -23,9 +24,10 @@ const ProjectDetails = () => {
 
     let heading = name
     let shortDescTxt = shortDesc
+   
 
     useEffect(() => {
-      getProjectById(projID)
+      getProjectById(projID) 
       // eslint-disable-next-line
     }, [projID])
 
@@ -38,7 +40,7 @@ const ProjectDetails = () => {
   return (
     <>
         <Meta title={`${name} - Web Developer - Javascript, React JS, UI/UX - Jozef Müller`}/>
-        <main className={styles.projectDetailsContainer}>
+        <main className={styles.projectDetailsContainer} ref={mainSectionRef}>
             {/* IF WE ARE LOADING ITEMS SHOW LOADER */}
             {loading && <img style={{margin: '0 auto'}} src={CircLoader} alt="loader"/> }
             {/* IF WE ARE NOT LOADING AND PROJECT DETAILS ARENT EMPTY SHOW CONTENT */}

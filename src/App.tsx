@@ -20,7 +20,6 @@ ReactGA.initialize(TRACKING_ID)
 const loader = document.getElementById('page-loader')
 const hideLoader = () => loader.classList.add('loader-hide');
 
-// Firefox 1.0+
 let userAgent = navigator.userAgent;
 
 function App() {
@@ -32,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <section className={styles.app}>
+    <section id='portfolio' className={styles.app}>
       {!userAgent.match(/firefox|fxios/i) && (<ParticlesComponent/>)}
       <LoadingBar/>
       {!location.pathname.includes('project') &&  <ArrowNavigation/>}

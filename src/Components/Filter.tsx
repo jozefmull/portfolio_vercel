@@ -34,6 +34,8 @@ const Filter = ({projects}: Props) => {
   // ADD ALL TO THE BEGGINING OF THIS ARRAY
   filterValues.unshift('All')
 
+ 
+
   // MEMOIZE CURRENT FILTER LINK VALUES
   const filterRender = useMemo(() =>
     filterValues.map((v,i) => (
@@ -44,6 +46,7 @@ const Filter = ({projects}: Props) => {
       </li>
     ))
   , [filterValues, filterProjects, filterValue])
+
 
   return (
     <>

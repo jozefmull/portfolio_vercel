@@ -11,6 +11,7 @@
     height: 100%;
     padding: 0 55px;
     overflow-x: hidden;
+    scroll-behavior: smooth !important;
 }
 
 @media only screen and (max-width: 480px) {

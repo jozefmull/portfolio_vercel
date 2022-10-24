@@ -2,8 +2,7 @@ import { useRef, useEffect }  from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { myRoutes } from '../assets/Routes'
 import { getPreviousPage, getNextPage } from '../Helpers/Helpers'
-import { animateElementsOut, animOutTl } from '../Helpers/GsapHelpers'
-import { gsap, Power4 } from 'gsap'
+import { animateElementsOut, animOutTl, animateArrowsIn } from '../Helpers/GsapHelpers'
 
 import styles from '../Css/Arrows.module.css'
 
@@ -17,8 +16,7 @@ const ArrowNavigation = () => {
   let arrowRightSpan = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    gsap.to('#arrow_right', {duration:0.2, right:0, ease:Power4.easeInOut, delay:2})
-    gsap.to('#arrow_left', {duration:0.2, left:0, ease:Power4.easeInOut, delay:2})
+    animateArrowsIn()
   }, [])
   
   /**
@@ -49,7 +47,7 @@ const ArrowNavigation = () => {
     animateElementsOut()
     
     setTimeout(() => {
-      navigate(`/${target.href.split('/').pop()}`)
+      navigate(`/${target.href.split('/').pop()}`)    
     }, (animOutTl.duration() * 1000))
   }
 
