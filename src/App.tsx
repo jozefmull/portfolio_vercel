@@ -1,5 +1,4 @@
-import {useEffect, useState, useContext} from 'react'
-import { GlobalContext } from './Context/GlobalState'
+import {useEffect, useState} from 'react'
 import { Routes, Route ,useLocation } from 'react-router-dom'
 import { hideLoader } from './Helpers/GsapHelpers';
 
@@ -21,14 +20,8 @@ import ReactGA from 'react-ga';
 const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID; 
 ReactGA.initialize(TRACKING_ID)
 
-let userAgent = navigator.userAgent;
-
 function App() {
   const location = useLocation()
-
-  const { getProjects, myState} = useContext(GlobalContext)
-  const {projects} = myState
-
   const [loaderFinish, setloaderFinish] = useState(false)
   
   useEffect(() => {
@@ -38,19 +31,13 @@ function App() {
     hideLoader.then(() => {
       setloaderFinish(true)
     })
-    // if we have no projects get projects
-    if (projects.length === 0) {
-      getProjects()
-    }
-    // eslint-disable-next-line
   }, []);
 
   return (
     <>
       <InitialLoader/>
       <section id='portfolio' className={styles.app}>
-        {/* IF we are on firefox do not display particles */}
-        {!userAgent.match(/firefox|fxios/i) && (<ParticlesComponent/>)}
+        <ParticlesComponent/>
         <LoadingBar/>
         {/* IF we are on project page do not display arrow navigation */}
         {!location.pathname.includes('project') &&  <ArrowNavigation/>}
