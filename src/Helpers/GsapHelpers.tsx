@@ -158,3 +158,12 @@ export const filterAnim = (upperRow:HTMLElement,downRow:HTMLElement, text:HTMLSp
     
         tlfilter.play()
 }
+
+
+export const hideLoader = new Promise((resolve) => {
+    setTimeout(function() {
+      resolve(
+        gsap.to('#page-loader', {duration:0.75, bottom:'unset', top: '-150vh', ease:Power4.easeInOut})
+      )
+    }, 750);
+  });

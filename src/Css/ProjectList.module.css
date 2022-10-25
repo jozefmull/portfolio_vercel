@@ -193,7 +193,7 @@
       transform: scaleY(0) scaleX(0) translateY(-10px);
     }
     25%{
-      transform: scaleY(0.15) scaleX(0.75);
+      transform: scaleY(0.15);
     }
     50%{
       transform: scaleY(0.75) scaleX(1.05) translateY(0px);
