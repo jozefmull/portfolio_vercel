@@ -51,9 +51,15 @@ const ProjectDetails = () => {
                     </div>
                     <p id="quitFadeUp" ref={shortDescRef} className={styles.shortDesc}>{shortDesc}</p>
                     <section  className={styles.single_item_buttons} >
-                        <button  id="quitFadeUp" className={styles.single_item_button}>
-                            <a href={url} target='_blank' rel='noreferrer'>VISIT THE WEBSITE</a>
-                        </button>
+                        {url === "-" ? (
+                            <button  id="quitFadeUp" className={styles.single_item_button_disabled} disabled>
+                                VISIT THE WEBSITE
+                            </button>
+                        ) : (
+                            <button  id="quitFadeUp" className={styles.single_item_button}>
+                                <a href={url} target='_blank' rel='noreferrer'>VISIT THE WEBSITE</a>
+                            </button>
+                        )}
                         {codeUrl === "-" ? ( <button  id="quitFadeUp" className={styles.single_item_button_disabled} disabled>
                             CODE
                         </button>): (
